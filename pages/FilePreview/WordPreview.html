@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>常州-宇航</title>
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/icon/font-awesome.min.css">
+</head>
+<body>
+<!--pdf类型的文件预览-->
+<div id="pdf-preview" style="display: none"></div>
+<!--Excel,Word文件预览-->
+<iframe style="display: none" id="officeOnline" src="" width='100%' height='100%' frameborder='1'></iframe>
+<!--图片文件预览-->
+<div id="picture-preview" style="display: none">
+    <div id="operation-menu">
+        <i id="download" class="fa fa-download" style="margin-right: 50px;"></i>
+        <i id="refresh" class="fa fa-refresh"></i>
+        <i id="plus" class="fa fa-plus"></i>
+        <i id="minus" class="fa fa-minus"></i>
+    </div>
+    <iframe id="picture-iframe" src="" width='100%' height='100%' frameborder='1'></iframe>
+</div>
+<!--Txt文件预览-->
+<div id="text-preview" style="display: none">
+    <div id="text-menu">
+        <i id="Tdownload" class="fa fa-download" style="margin-right: 50px;"></i>
+        <i id="Trefresh" class="fa fa-refresh"></i>
+        <i id="Tplus" class="fa fa-plus"></i>
+        <i id="Tminus" class="fa fa-minus"></i>
+    </div>
+    <iframe id="text-iframe" src="" width='100%' height='100%' frameborder='1'></iframe>
+</div>
+<script src="../../../Tool/js/jquery.min.js"></script>
+<script src="../../lib/js/jquery.media.js"></script>
+<script src="../../lib/js/toolsFun.js"></script>
+<script>
+    var argsFromPage;
+    window.onload = function(){
+        argsFromPage = args();
+        console.log(argsFromPage);
+        $('#pdf-preview').hide();
+        $('#officeOnline').hide();
+        $('#text-preview').hide();
+        $('#picture-preview').hide();
+        switch (argsFromPage.type) {
+            case "pdf":
+                $('#pdf-preview').show();
+                $('#pdf-preview').media({
+                    width: '100%',
+                    height: '100%',
+                    autoplay: true,
+                    src:argsFromPage.url,
+                });
+                break;
+            case "doc":
+            case "docx":
+            case "xls":
+            case "xlsx":
+                $('#officeOnline').show();
+                $('#officeOnline').attr("src","https://view.officeapps.live.com/op/view.aspx?src="+argsFromPage.url);
+                break;
+            case "txt":
+                $('#text-preview').show();
+                $('#text-iframe').attr("src",argsFromPage.url);
+                break;
+            case "jpg":
+            case "jepg":
+            case "png":
+            case "bmp":
+            case "gif":
+                $('#picture-preview').show();
+                $('#picture-iframe').attr("src",argsFromPage.url);
+                break;
+        }
+    };
+
+
+    /*
+    *文档预览
+    * */
+    //文件下载
+    $('#Tdownload').on('click',function () {
+        var url=argsFromPage.url;
+        console.log(url);
+        var elemIF = document.createElement("iframe");
+        elemIF.src = url;
+        elemIF.style.display = "none";
+        document.body.appendChild(elemIF);
+    });
+    //放大
+    $('#Tplus').on('click',function () {
+        //整体
+        var width=$('#text-iframe').width();
+        $('#text-iframe').css('width',parseInt(width)+50+'px');
+    });
+    //缩小
+    $('#Tminus').on('click',function () {
+        //整体
+        var width=$('#text-iframe').width();
+        $('#text-iframe').css('width',parseInt(width)-30+'px');
+    });
+    //刷新
+    $('#Trefresh').on('click',function () {
+        location.reload();
+    });
+
+
+    /*
+    *图片预览
+    * */
+    //文件下载
+    $('#download').on('click',function () {
+        downZipEvent('http://www.youguangchina.cn/YuHang/file/download',argsFromPage.path);
+    });
+    //放大
+    $('#plus').on('click',function () {
+        //整体
+        var width=$('#picture-iframe').width();
+        $('#picture-iframe').css('width',parseInt(width)+50+'px');
+    });
+    //缩小
+    $('#minus').on('click',function () {
+        //整体
+        var width=$('#picture-iframe').width();
+        $('#picture-iframe').css('width',parseInt(width)-30+'px');
+    });
+    //刷新
+    $('#refresh').on('click',function () {
+        location.reload();
+    });
+
+
+    function downZipEvent(url,filepath) {
+        var form = $("<form>");
+        form.attr("style", "display:none");
+        form.attr("target", "");
+        form.attr("method", "post");
+        form.attr("action", url);
+        var input1 = $("<input>");
+        input1.attr("type", "hidden");
+        input1.attr("name", "filePath");
+        input1.attr("value", filepath);
+        $("body").append(form);
+        form.append(input1);
+        form.submit();
+        form.remove();
+    }
+</script>
+</body>
+</html>

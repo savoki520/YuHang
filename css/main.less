@@ -1,0 +1,606 @@
+//login-page-style
+//time:2019-1-8
+//author:熊豆豆
+
+//登录页面样式
+#login {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top:0;
+  right:0;
+  background: url("../images/login/login-bg.png") no-repeat;
+  -webkit-background-size: contain;
+  background-size: 70% 100%;
+  background-position: -10px 0;
+  .login-title {
+    position: absolute;
+    bottom:5%;
+    left: 66px;
+    transform: translateY(-50%);
+    .cn {
+      font-size:50px;
+      font-family:ZHSRXT2011-GB;
+      line-height: 63px;
+      color: #fff;
+    }
+    .en {
+      font-size:40px;
+      font-family:Arial;
+      font-weight:400;
+      line-height:45px;
+      color:rgba(255,255,255,.71);
+      letter-spacing:13px;
+    }
+  }
+  .login-content {
+    position: absolute;
+    top:0;
+    right:30px;
+    width:30%;
+    height: auto;
+    font-family:Arial;
+    //background-color: #fff;
+    .title {
+      width:275px;
+      height:84px;
+      text-align: center;
+      margin-top: 94px;
+      margin-left: 114px;
+    }
+    .name {
+      margin-top: 150px;
+      font-size:20px;
+      font-weight:400;
+      line-height:23px;
+      color: #DEDEDE;
+    }
+    label {
+      input{
+        width: 387px;
+        margin-top: 6px;
+        height:48px;
+        line-height: 48px;
+        outline: none;
+        border:none;
+        border-bottom: 1px solid #DEDEDE;
+        color: #5A7BE1;
+        text-align: center;
+      }
+      input[type='password']{
+        font-size: 20px;
+        letter-spacing: 2px;
+        color: #3D55D6;
+      }
+    }
+    .password {
+      margin-top: 18px;
+      font-size:20px;
+      font-weight:400;
+      line-height:23px;
+      color: #DEDEDE;
+    }
+    .remember {
+      width: 387px;
+      height: 37px;
+      line-height: 37px;
+      text-align: right;
+      color: #DEDEDE;
+      font-size: 16px;
+      i {
+        margin-right: 5px;
+      }
+    }
+    .btn {
+      width:321px;
+      height: 71px;
+      background: url("../images/login/btn-bg.png") no-repeat 100%;
+      margin-left: 81px;
+      margin-top: 30px;
+      text-align: center;
+      vertical-align: middle;
+    }
+  }
+}
+
+
+//新建项目
+#new-folder-content {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top:0;
+  left:0;
+  background-color: rgba(0,0,0,.4);
+  z-index: 10000;
+  display: none;
+  color: #707070;
+  .content {
+    width: 500px;
+    height:340px;
+    border-radius: 6px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+    padding-top: 34px;
+    color: #5B5B5B;
+    box-shadow:3px 3px 20px rgba(40,120,255,0.26);
+    text-align: center;
+    .title {
+      color: #000;
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .input {
+      width: 350px;
+      height:auto;
+      margin:18px auto 0;
+      text-align: left;
+      p {
+        font-size: 10px;
+        color: #BEBEBE;
+        margin-bottom: 0;
+      }
+      input {
+        width:350px;
+        height:38px;
+        border:none;
+        border-bottom: 1px solid #BEBEBE;
+        line-height: 30px;
+        outline: none;
+        padding-left: 20px;
+        margin-bottom: 10px;
+        font-size: 16px;
+      }
+      .warning {
+        font-size: 10px;
+        color: #5584EA;
+        margin-bottom: 43px;
+        margin-top: 10px;
+      }
+    }
+    div {
+      span {
+        width: 96px;
+        height:36px;
+        border-radius: 5px;
+        border:none;
+        font-size: 16px;
+      }
+      #new-folder-ok {
+        background-color: #5584EA;
+      }
+      #new-folder-cancel {
+        color: #67677A;
+      }
+    }
+  }
+}
+
+//新建普通文件夹
+.add-common-folder {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top:0;
+  left:0;
+  background-color: rgba(0,0,0,.4);
+  z-index: 10000;
+  display: none;
+  .content {
+    width: 500px;
+    height:230px;
+    border-radius: 5px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+    padding-top: 34px;
+    text-align: center;
+    .title {
+      color: #000;
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .input {
+      width: 350px;
+      height:auto;
+      margin:18px auto 0;
+      text-align: left;
+      p {
+        font-size: 10px;
+        color: #BEBEBE;
+        margin-bottom: 0;
+      }
+      input {
+        width:350px;
+        height:38px;
+        border:none;
+        border-bottom: 1px solid #BEBEBE;
+        line-height: 30px;
+        outline: none;
+        padding-left: 20px;
+      }
+    }
+    div {
+      span {
+        width: 96px;
+        height:36px;
+        border-radius: 5px;
+        border:none;
+        font-size: 16px;
+        margin-top: 30px;
+      }
+      .ok {
+        background-color: #5584EA;
+      }
+      .cancel {
+        color: #67677A;
+      }
+    }
+  }
+}
+
+//注册页面样式
+#register-content {
+  width: 100%;
+  height:100%;
+  position: absolute;
+  top:0;
+  left:0;
+  background: url("../images/register/bg.png") no-repeat top left 100%;
+  background-color: rgba(0,0,0,.2);
+  .title {
+    width: 275px;
+    height: 84px;
+    position: absolute;
+    top:40px;
+    left:60px;
+  }
+  .content {
+    width:1000px;
+    height:680px;
+    background:rgba(255,255,255,1);
+    box-shadow:3px 3px 20px rgba(85,132,234,0.54);
+    border-radius:6px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    .Name {
+      font-size: 26px;
+      color: #000;
+      margin: 57px 0 0 66px;
+    }
+    .text {
+      width: 492px;
+      height: auto;
+      margin-top: 30px;
+      margin-left: 245px;
+      color: #5B5B5B;
+      font-size: 26px;
+      line-height: 40px;
+      input{
+        width: 342px;
+        height: 40px;
+        border: 1px solid #BEBEBE;
+        border-radius: 5px;
+        padding-left: 20px;
+        line-height: 40px;
+        font-size: 18px;
+      }
+    }
+    .select {
+      width: 492px;
+      height: auto;
+      margin-top: 30px;
+      margin-left: 245px;
+      color: #5B5B5B;
+      font-size: 26px;
+      line-height: 40px;
+      position: relative;
+      select {
+        width: 342px;
+        height: 40px;
+        border: 1px solid #BEBEBE;
+        border-radius: 5px;
+        padding-left: 20px;
+        line-height: 40px;
+        font-size: 18px;
+        appearance:none;
+        -moz-appearance:none;
+        -webkit-appearance:none;
+      }
+      select::-ms-expand { display: none; }
+      i{
+        position: absolute;
+        top: 50%;
+        right:10px;
+        transform: translateY(-50%);
+        font-size: 30px;
+        pointer-events: none;
+      }
+    }
+    .btn {
+      width: 529px;
+      height: 71px;
+      background: url("../images/register/btn.png") no-repeat top left 100%;
+      margin: 30px 0 0 236px;
+    }
+    .changeBtn {
+      width: 429px;
+      height: 40px;
+      background:linear-gradient(90deg,rgba(82,159,248,1) 0%,rgba(78,121,241,1) 48%,rgba(50,0,255,1) 100%);
+      box-shadow:0px 6px 6px rgba(165,201,255,0.71);
+      color: #fff;
+      line-height: 40px;
+      border-radius: 6px;
+      margin: 30px auto 10px;
+      text-align: center;
+      font-size: 20px;
+    }
+    .readyHas {
+      font-size: 16px;
+      color: #BEBEBE;
+      a {
+        color: #5584EA;
+      }
+    }
+  }
+}
+
+//回收站文件详细内容
+#rubbish-detail {
+  width: 355px;
+  height: 382px;
+  position: absolute;
+  z-index: 1000;
+  top:30%;
+  left: 50%;
+  display: none;
+  background-color: rgb(241,241,241);
+  font-size: 14px;
+  color: #333;
+  box-shadow:3px 3px 20px rgba(40,120,255,0.26);
+  .r-fileName {
+    padding-left: 5px;
+    width: 100%;
+    height: 36px;
+    position: relative;
+    line-height: 36px;
+    vertical-align: middle;
+    background-color: #fff;
+    img {
+      position: absolute;
+      top:50%;
+      right:5px;
+      transform: translateY(-50%);
+    }
+  }
+  .content {
+    margin: 35px 10px 10px;
+    background-color: #fff;
+    position: relative;
+    border:1px solid #CCC;
+    font-size: 10px;
+    .title {
+      width: 60px;
+      height: 20px;
+      position: absolute;
+      top:-20px;
+      left:-1px;
+      background-color: #fff;
+      border:1px solid #CCC;
+      border-bottom: none;
+      text-align: center;
+      line-height: 20px;
+    }
+    .name {
+      width: 90%;
+      height: 70px;
+      margin:0 auto;
+      border-bottom: 1px solid #CCC;
+      vertical-align: middle;
+      line-height: 70px;
+      img {
+        width: 30px;
+        height:40px;
+      }
+    }
+    .detail {
+      width: 90%;
+      height: 30px;
+      margin:0 auto;
+      line-height: 30px;
+      .type {
+        width: 60px;
+        text-align: left;
+      }
+    }
+    .btn {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      span {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+//清空回收站样式
+.clear-worning {
+  width: 100%;
+  height:100%;
+  position: fixed;
+  top:0;
+  right:0;
+  background-color: rgba(0,0,0,.4);
+  z-index: 5000;
+  display: none;
+  .content {
+    width:500px;
+    height:200px;
+    background-color: #fff;
+    border-radius: 6px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    padding:24px 0 0 0;
+    .title {
+      font-size: 18px;
+      color: #000;
+      font-weight: 700;
+      margin-left: 42px;
+      i {
+        color: #E8B139;
+        margin-left: 5px;
+      }
+    }
+    .warning {
+      font-size: 16px;
+      margin-top: 39px;
+    }
+    .clear-btn {
+      text-align: center;
+      margin-top: 36px;
+      span {
+        width: 96px;
+        height: 36px;
+        cursor: pointer;
+      }
+      #clear-cancel {
+        border: none;
+        color: #67677A;
+        border: none;
+      }
+      #clear-ok {
+        background-color: #5584EA;
+      }
+      #exit-cancel {
+        color: #67677A;
+      }
+      #exit-ok {
+        background-color: #5584EA;
+      }
+    }
+  }
+}
+#exit-content {
+  width: 100%;
+  height:100%;
+  position: fixed;
+  top:0;
+  right:0;
+  background-color: rgba(0,0,0,.4);
+  z-index: 5000;
+  display: none;
+  .content {
+    width:500px;
+    height:200px;
+    background-color: #fff;
+    border-radius: 6px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    padding:24px 0 0 0;
+    .title {
+      font-size: 18px;
+      color: #000;
+      font-weight: 700;
+      margin-left: 42px;
+      i {
+        color: #E8B139;
+        margin-left: 5px;
+      }
+    }
+    .warning {
+      font-size: 16px;
+      margin-top: 39px;
+    }
+    .clear-btn {
+      text-align: center;
+      margin-top: 36px;
+      span {
+        width: 96px;
+        height: 36px;
+        cursor: pointer;
+        border: none;
+      }
+      #exit-cancel {
+        color: #67677A;
+      }
+      #exit-ok {
+        background-color: #5584EA;
+      }
+      #exit_ok {
+        background-color: #5584EA;
+      }
+    }
+  }
+}
+
+
+//锁屏样式
+#lock-enter {
+  width: 100%;
+  height:100%;
+  position: fixed;
+  top:0;
+  right:0;
+  background-color: rgba(0,0,0,.4);
+  z-index: 50000;
+  display: none;
+  .content {
+    width: 500px;
+    height:340px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    box-shadow:3px 3px 20px rgba(85,132,234,0.31);
+    background-color: #fff;
+    padding-top: 32px;
+    .title {
+      font-size: 18px;
+      color: #000;
+      font-weight: 700;
+      margin-left: 42px;
+      i {
+        color: #E8B139;
+        margin-left: 5px;
+      }
+    }
+    .input {
+      text-align: center;
+      div {
+        margin-top: 20px;
+        input{
+          width: 350px;
+          height: 32px;
+          border: none;
+          border-bottom: 1px solid #BEBEBE;
+          outline: none;
+          font-size: 14px;
+          letter-spacing: 2px;
+        }
+        span {
+          width: 96px;
+          height: 36px;
+          border:none;
+          font-size: 16px;
+        }
+        .cancel {
+          color: #67677A;
+        }
+        .ok {
+          background-color: #5584EA;
+        }
+      }
+    }
+  }
+}

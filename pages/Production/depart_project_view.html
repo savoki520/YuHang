@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>常州-宇航</title>
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/baoxiao.css">
+    <link rel="stylesheet" href="../../css/Production/depart_project_view.css">
+    <link rel="stylesheet" href="../../css/three-bounce.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../lib/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/icon/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/Production/base.css">
+    <script src="../../lib/vue/vue.min.js"></script>
+    <script src="../../lib/js/Production/tools.js"></script>
+</head>
+<body style="padding: 222px 0 0 343px">
+<div id="depart_project_view" class="depart_project_view">
+    <!--头部-->
+    <header class="index-header">
+        <div class="header-top"></div>
+        <div class="header-middle clearfix">
+            <div class="logo pull-left">
+                <img src="../../images/index/head-logo.png" alt="">
+            </div>
+            <div class="content pull-right clearfix">
+                <div class="set pull-right" id="exit-System">
+                    <img src="../../images/index/header-exit.png" alt="">
+                </div>
+                <div class="set pull-right" id="change-Password">
+                    <img src="../../images/index/header-set.png" alt="">
+                </div>
+                <div class="set pull-right" id="lock-screen">
+                    <img src="../../images/index/header-lock.png" alt="">
+                </div>
+                <div class="line pull-right"></div>
+                <div class="box pull-right">
+                    <img src="../../images/index/header-time.png" alt="">
+                    <span id="dataTime">2018年12月26日 星期三</span>
+                </div>
+                <div class="box pull-right">
+                    <img src="../../images/index/header-person.png" alt="">
+                    <span id="username">张海华，欢迎您</span>
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom clearfix">
+            <div class="title pull-left" id="pageTitle">
+                项目查看
+            </div>
+            <div class=" content pull-right clearfix">
+                <div class="department pull-right">
+                    <img src="../../images/index/work_icon2.png" alt="">
+                    <span>生产部</span>
+                </div>
+                <div class="search pull-right">
+                    <input type="text" name="search" v-on:keyup="searchVal_input" v-model="searchVal">
+                    <img src="../../images/index/header-search.png" alt="" id="file-search">
+                </div>
+            </div>
+        </div>
+    </header>
+    <aside class="index-menu">
+        <div class="title">
+            <img src="../../images/menu/menu8.png" alt="">
+            <span>个人工作台</span>
+        </div>
+        <div class="menu active">
+            <a href="JavaScript:void (0)">
+                <img src="../../images/menu/menu1-1.png" alt="">
+                <span>项目查看</span>
+            </a>
+        </div>
+        <div class="menu" style="margin-top: 0;">
+            <a href="depart_stock.html" target="_self">
+                <img src="../../images/menu/menu9.png" alt="">
+                <span>库存</span>
+            </a>
+        </div>
+        <div class="menu" style="margin-top: 0;">
+            <a href="depart_reimbursement.html" target="_self">
+                <img src="../../images/menu/menu6.png" alt="">
+                <span>报销</span>
+            </a>
+        </div>
+    </aside>
+    <section class="index-content">
+        <div class="ic_content">
+            <div class="depart_icc_top">
+                <!--返回上一层-->
+                <div class="res" v-show="childrenItemFlag">
+                    <div class="res_btn" title="返回上一层" v-on:click="res_btn"></div>
+                </div>
+                <div class="dict_item" v-on:click="sortData('id')">
+                    项目编号
+                    <div class="dir_line"></div>
+                </div>
+                <div class="dict_item" v-on:click="sortData('time')">
+                    时间排序
+                    <div class="dir_icon"></div>
+                </div>
+            </div>
+            <div class="depart_icc_middle"></div>
+            <div id="weChat">
+                <div class="depart_icc_bottom">
+
+                    <div class="dib_content_view" v-show="parentPackages.length > 0">
+                        <!--&lt;!&ndash;项目查看&ndash;&gt;-->
+                        <div class="demo_show">
+                            <div class="dib_item" v-for="(item,index) in parentPackages" :title="item.title" v-on:click="clickPackage(item.type,index,item.href,item,$event)" :data-val="item.id" v-on:dblclick="previewFile(item.type,item.href)">
+                                <div class="dibi_top" :style="{ 'backgroundImage': 'url(' + item.icon + ')','backgroundSize':item.type=='directory'?'64px 50px':'50px 70px'}"></div>
+                                <div class="dibi_bottom">{{item.title}}</div>
+                                <div class="right_lists" :style="{display:rightChickId == index?'block':'none'}">
+                                    <div class="rl_item" v-on:click="downLoadPackage(item.type,item.href,item.path)">文件下载</div>
+                                    <!--<div class="rl_item" v-on:click="reName(item.type,item.href,item.path,item.title)">重命名</div>-->
+                                </div>
+                                <!--<img src="../../images/depart/dblckick.png" alt="" width="40px" height="40px" v-show="hover_id == item.id && item.type!='directory'">-->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--<div class="not_content" v-show="parentPackages.length == 0">-->
+                        <!--未搜索到相关文件 - _ - |||-->
+                    <!--</div>-->
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="sk-three-bounce" v-show="loadingFlag" style="display: block">
+        <div class="sk-child sk-bounce1"></div>
+        <div class="sk-child sk-bounce2"></div>
+        <div class="sk-child sk-bounce3"></div>
+    </div>
+</div>
+<!--锁屏-->
+<div id="lock-enter">
+    <div class="content">
+        <p class="title">提示<i class="fa fa-exclamation-circle"></i></p>
+        <div class="input">
+            <div>
+                <img src="../../images/index/lock-enter.png" alt="">
+            </div>
+            <div>
+                <input type="password" name="lock" class="text-center" placeholder="请输入登录密码">
+            </div>
+            <div style="margin-top: 60px;">
+                <span id="lock-enter-Cancel" class="btn btn-default cancel">重置</span>
+                <span id="lock-enter-Ok" class="btn btn-primary ok">确定</span>
+            </div>
+        </div>
+    </div>
+</div>
+<!--退出系统提示提示-->
+<div id="exit-content" class="clear-worning">
+    <div class="content">
+        <p class="title">
+            提示
+            <i class="fa fa-exclamation-circle"></i>
+        </p>
+        <div class="warning text-center" style="font-weight: 700;">
+            确认退出系统?
+        </div>
+        <div class="clear-btn">
+            <span id="exit-cancel" class="btn btn-default">取消</span>
+            <span id="exit-ok" class="btn btn-primary">确认 </span>
+        </div>
+    </div>
+</div>
+<script src="../../../Tool/js/jquery.min.js"></script>
+<script src="../../lib/slimescroll/jquery.slimscroll.min.js"></script>
+<script src="../../lib/js/jquery.media.js"></script>
+<script src="../../lib/js/Production/depart_project_view.js"></script>
+<script src="../../lib/js/toolsFun.js"></script>
+</body>
+</html>

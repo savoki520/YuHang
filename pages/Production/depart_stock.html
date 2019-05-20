@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>常州-宇航</title>
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/baoxiao.css">
+    <link rel="stylesheet" href="../../css/Production/depart_stock.css">
+    <link rel="stylesheet" href="../../css/three-bounce.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../lib/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/Production/base.css">
+    <link rel="stylesheet" href="../../css/icon/font-awesome.min.css">
+
+    <script src="../../lib/vue/vue.min.js"></script>
+    <script src="../../lib/js/Production/tools.js"></script>
+</head>
+<body style="padding: 222px 0 0 343px">
+ <div id="depart_stock" class="depart_stock">
+     <!--头部-->
+     <header class="index-header">
+         <div class="header-top"></div>
+         <div class="header-middle clearfix">
+             <div class="logo pull-left">
+                 <img src="../../images/index/head-logo.png" alt="">
+             </div>
+             <div class="content pull-right clearfix">
+                 <div class="set pull-right" id="exit-System">
+                     <img src="../../images/index/header-exit.png" alt="">
+                 </div>
+                 <div class="set pull-right" id="change-Password">
+                     <img src="../../images/index/header-set.png" alt="">
+                 </div>
+                 <div class="set pull-right" id="lock-screen">
+                     <img src="../../images/index/header-lock.png" alt="">
+                 </div>
+                 <div class="line pull-right"></div>
+                 <div class="box pull-right">
+                     <img src="../../images/index/header-time.png" alt="">
+                     <span id="dataTime">2018年12月26日 星期三</span>
+                 </div>
+                 <div class="box pull-right">
+                     <img src="../../images/index/header-person.png" alt="">
+                     <span id="username">张海华，欢迎您</span>
+                 </div>
+             </div>
+         </div>
+         <div class="header-bottom clearfix">
+             <div class="title pull-left" id="pageTitle">
+                 库存
+             </div>
+             <div class=" content pull-right clearfix">
+                 <div class="department pull-right">
+                     <img src="../../images/index/work_icon2.png" alt="">
+                     <span>生产部</span>
+                 </div>
+                 <div class="search pull-right">
+                     <input type="text" name="search">
+                     <img src="../../images/index/header-search.png" alt="" id="file-search">
+                 </div>
+             </div>
+         </div>
+     </header>
+     <aside class="index-menu">
+         <div class="title">
+             <img src="../../images/menu/menu8.png" alt="">
+             <span>个人工作台</span>
+         </div>
+         <div class="menu " style="margin-top: 0;">
+             <a href="depart_project_view.html" target="_self">
+                 <div><img src="../../images/menu/menu1.png" alt=""></div>
+                 <span>项目查看</span>
+             </a>
+         </div>
+         <div class="menu active" style="margin-top: 0;">
+             <a href="JavaScript:void (0)" target="_self">
+                 <div><img src="../../images/menu/menu9-1.png" alt=""></div>
+                 <span>库存</span>
+             </a>
+         </div>
+         <div class="menu">
+             <a href="depart_reimbursement.html" target="_self">
+                 <div><img src="../../images/menu/menu6.png" alt=""></div>
+                 <span>报销</span>
+             </a>
+         </div>
+     </aside>
+     <section class="index-content">
+         <div class="ic_content">
+             <div class="depart_icc_top">
+                 <div class="dit_item" v-on:click="createParentItem">
+                     <div class="dit_add_icon"></div>
+                     <div class="dit_add_title">新建总类目</div>
+                 </div>
+                 <div v-for="(item,index) in parent_items" title="双击修改" :class="['dit_item',selectedParentId==item.id?'dit_item_active':'']"  :data-val="item.id" v-on:click="clickParentModeItem(item.title,item.id)"
+                 v-on:dblclick="dbl_update(item.id,item.title)">
+                     {{item.title}}
+                 </div>
+             </div>
+             <div class="depart_icc_middle"></div>
+             <div id="weChat">
+                 <div class="depart_icc_bottom">
+                     <div class="dib_content">
+                         <div class="dib_item" title="点击修改" v-for="(item,index) in subcategorys" v-on:mouseover="mouseover_item($event)" v-on:mouseout="mouseout_item($event)" v-on:click="clickItem(item.id,$event)">
+                             <div class="dibi_content">
+                                 <div class="dibi_left"><img :src="item.icon" alt=""></div>
+                                 <div class="dibi_right">
+                                     <div class="dr_title">{{item.title}}</div>
+                                     <div class="dr_stock">库存：{{item.stock}}</div>
+                                     <div class="dr_operation">
+                                         <span class="operation_title">增加数量</span>
+                                         <div class="operation_calculation">
+                                             <div class="operat_reduce operat_item" v-on:click="reduceChildStock(item.id)">-</div>
+                                             <div class="operat_num operat_item">{{item.num}}</div>
+                                             <div class="operat_add operat_item" v-on:click="addChildStock(item.id)">+</div>
+                                         </div>
+                                     </div>
+                                     <div class="dr_btn">
+                                         <div class="db_btn" v-on:click="confirmAdd(item.id)">确认增加</div>
+                                     </div>
+                                 </div>
+                             </div>
+                             <img style="display:none;" class="close_item" src="../../images/index/close_icon.png" alt="" width="14" height="14" v-on:click="close_item(item.id,item.icon)">
+                         </div>
+
+                         <!--添加类目子项-->
+                         <div class="add_category_child">
+                             <div class="acc_content">
+                                 <div class="acc_icon" v-on:click="clickChildrenItem" title="新建子类目"></div>
+                             </div>
+                         </div>
+                         <div class="not_content" v-show="subcategorys.length == 0">
+                             还未添加商品 - _ - |||
+                         </div>
+                     </div>
+
+                 </div>
+             </div>
+         </div>
+     </section>
+     <!--灰色屏幕-->
+     <div class="gray_back" v-show="parentItemFlag || childItemFlag || childItemUpdateFlag || parentItemUpdateFlag"></div>
+     <!--父类目创建-窗口-->
+     <div class="parent_create_win" v-show="parentItemFlag || parentItemUpdateFlag">
+         <!--创建提示-->
+         <div class="create_title" v-show="parentItemFlag">新建总类目</div>
+         <div class="create_title" v-show="parentItemUpdateFlag">修改总类目</div>
+         <!--父类目标题-->
+         <div class="pcw_title">
+             <input type="text" placeholder="请输入总类目标题" v-model="parentItemInfo.title">
+         </div>
+         <!--创建取消-->
+         <div class="create_cancel" v-show="parentItemFlag">
+             <div class="create_btn" v-on:click="confirmParent">创建</div>
+             <div class="cancel_btn" v-on:click="cancelParent">取消</div>
+         </div>
+         <div class="create_cancel" v-show="parentItemUpdateFlag">
+             <div class="create_btn" v-on:click="confirmParentUpdate">修改</div>
+             <div class="del_btn" v-on:click="delParentUpdate">删除</div>
+             <div class="cancel_btn" v-on:click="cancelParentUpdate">取消</div>
+         </div>
+     </div>
+     <!--新建子类目 窗口-->
+     <div class="child_create_win" v-show="childItemFlag || childItemUpdateFlag">
+         <!--创建提示-->
+         <div class="child_create_title" v-show="childItemFlag">新建商品</div>
+         <div class="child_create_title" v-show="childItemUpdateFlag">修改商品</div>
+         <!--标题-->
+         <div class="child_create_title2 child_create_item">
+             <div class="cci_title">标题：</div>
+             <div class="cci_input"><input type="text" v-model="childrenItemInfo.title" placeholder="成品00001"></div>
+         </div>
+         <!--计量单位-->
+         <div class="child_create_title2 child_create_item">
+             <div class="cci_title">计量单位：</div>
+             <div class="cci_input"><input type="text" v-model="childrenItemInfo.unit" placeholder="计量单位"></div>
+         </div>
+         <!--库存量-->
+         <div class="child_create_stock child_create_item">
+             <div class="cci_title">库存量：</div>
+             <div class="cci_input"><input type="text" v-model="childrenItemInfo.stock" placeholder="数字[0-9]"></div>
+         </div>
+         <!--图片-->
+         <div class="child_create_icon">
+             <div class="cci_title">图片：</div>
+             <div class="cci_icon cci_icon_default" style="background:url(../../images/depart/add_icon.png) no-repeat;background-size:100% 100%;" v-show="childrenItemInfo.icon == ''">
+                 <input type="file" v-on:change="chooseChange" accept="image/gif, image/jpeg, image/png, image/jpg">
+             </div>
+             <div class="cci_img" v-show="childrenItemInfo.icon != ''">
+                 <img  class="icon_info" :src="childrenItemInfo.icon" alt="">
+                 <div class="icon_close" v-on:click="del_icon"></div>
+             </div>
+         </div>
+         <!--创建取消-->
+         <div class="create_cancel" v-show="childItemFlag">
+             <div class="create_btn" v-on:click="confirmChildren">创建</div>
+             <div class="cancel_btn" v-on:click="cancelChildren">取消</div>
+         </div>
+         <div class="create_cancel" v-show="childItemUpdateFlag">
+             <div class="create_btn" v-on:click="confirmUpdate">修改</div>
+             <div class="cancel_btn" v-on:click="cancelUpdate">取消</div>
+         </div>
+     </div>
+ </div>
+ <!--锁屏-->
+ <div id="lock-enter">
+     <div class="content">
+         <p class="title">提示<i class="fa fa-exclamation-circle"></i></p>
+         <div class="input">
+             <div>
+                 <img src="../../images/index/lock-enter.png" alt="">
+             </div>
+             <div>
+                 <input type="password" name="lock" class="text-center" placeholder="请输入登录密码">
+             </div>
+             <div style="margin-top: 60px;">
+                 <span id="lock-enter-Cancel" class="btn btn-default cancel">重置</span>
+                 <span id="lock-enter-Ok" class="btn btn-primary ok">确定</span>
+             </div>
+         </div>
+     </div>
+ </div>
+ <!--退出系统提示提示-->
+ <div id="exit-content" class="clear-worning">
+     <div class="content">
+         <p class="title">
+             提示
+             <i class="fa fa-exclamation-circle"></i>
+         </p>
+         <div class="warning text-center" style="font-weight: 700;">
+             确认退出系统?
+         </div>
+         <div class="clear-btn">
+             <span id="exit-cancel" class="btn btn-default">取消</span>
+             <span id="exit-ok" class="btn btn-primary">确认 </span>
+         </div>
+     </div>
+ </div>
+ <script src="../../../Tool/js/jquery.min.js"></script>
+ <script src="../../lib/slimescroll/jquery.slimscroll.min.js"></script>
+ <script src="../../lib/js/Production/depart_stock.js"></script>
+ <script src="../../lib/js/toolsFun.js"></script>
+</body>
+</html>

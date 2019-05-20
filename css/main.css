@@ -1,0 +1,582 @@
+#login {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background: url("../images/login/login-bg.png") no-repeat;
+  -webkit-background-size: contain;
+  background-size: 70% 100%;
+  background-position: -10px 0;
+}
+#login .login-title {
+  position: absolute;
+  bottom: 5%;
+  left: 66px;
+  transform: translateY(-50%);
+}
+#login .login-title .cn {
+  font-size: 50px;
+  font-family: ZHSRXT2011-GB;
+  line-height: 63px;
+  color: #fff;
+}
+#login .login-title .en {
+  font-size: 40px;
+  font-family: Arial;
+  font-weight: 400;
+  line-height: 45px;
+  color: rgba(255, 255, 255, 0.71);
+  letter-spacing: 13px;
+}
+#login .login-content {
+  position: absolute;
+  top: 0;
+  right: 30px;
+  width: 30%;
+  height: auto;
+  font-family: Arial;
+}
+#login .login-content .title {
+  width: 275px;
+  height: 84px;
+  text-align: center;
+  margin-top: 94px;
+  margin-left: 114px;
+}
+#login .login-content .name {
+  margin-top: 150px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 23px;
+  color: #DEDEDE;
+}
+#login .login-content label input {
+  width: 387px;
+  margin-top: 6px;
+  height: 48px;
+  line-height: 48px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #DEDEDE;
+  color: #5A7BE1;
+  text-align: center;
+}
+#login .login-content label input[type='password'] {
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: #3D55D6;
+}
+#login .login-content .password {
+  margin-top: 18px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 23px;
+  color: #DEDEDE;
+}
+#login .login-content .remember {
+  width: 387px;
+  height: 37px;
+  line-height: 37px;
+  text-align: right;
+  color: #DEDEDE;
+  font-size: 16px;
+}
+#login .login-content .remember i {
+  margin-right: 5px;
+}
+#login .login-content .btn {
+  width: 321px;
+  height: 71px;
+  background: url("../images/login/btn-bg.png") no-repeat 100%;
+  margin-left: 81px;
+  margin-top: 30px;
+  text-align: center;
+  vertical-align: middle;
+}
+#new-folder-content {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 10000;
+  display: none;
+  color: #707070;
+}
+#new-folder-content .content {
+  width: 500px;
+  height: 340px;
+  border-radius: 6px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding-top: 34px;
+  color: #5B5B5B;
+  box-shadow: 3px 3px 20px rgba(40, 120, 255, 0.26);
+  text-align: center;
+}
+#new-folder-content .content .title {
+  color: #000;
+  font-size: 18px;
+  font-weight: 700;
+}
+#new-folder-content .content .input {
+  width: 350px;
+  height: auto;
+  margin: 18px auto 0;
+  text-align: left;
+}
+#new-folder-content .content .input p {
+  font-size: 10px;
+  color: #BEBEBE;
+  margin-bottom: 0;
+}
+#new-folder-content .content .input input {
+  width: 350px;
+  height: 38px;
+  border: none;
+  border-bottom: 1px solid #BEBEBE;
+  line-height: 30px;
+  outline: none;
+  padding-left: 20px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+#new-folder-content .content .input .warning {
+  font-size: 10px;
+  color: #5584EA;
+  margin-bottom: 43px;
+  margin-top: 10px;
+}
+#new-folder-content .content div span {
+  width: 96px;
+  height: 36px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+}
+#new-folder-content .content div #new-folder-ok {
+  background-color: #5584EA;
+}
+#new-folder-content .content div #new-folder-cancel {
+  color: #67677A;
+}
+.add-common-folder {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 10000;
+  display: none;
+}
+.add-common-folder .content {
+  width: 500px;
+  height: 230px;
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding-top: 34px;
+  text-align: center;
+}
+.add-common-folder .content .title {
+  color: #000;
+  font-size: 18px;
+  font-weight: 700;
+}
+.add-common-folder .content .input {
+  width: 350px;
+  height: auto;
+  margin: 18px auto 0;
+  text-align: left;
+}
+.add-common-folder .content .input p {
+  font-size: 10px;
+  color: #BEBEBE;
+  margin-bottom: 0;
+}
+.add-common-folder .content .input input {
+  width: 350px;
+  height: 38px;
+  border: none;
+  border-bottom: 1px solid #BEBEBE;
+  line-height: 30px;
+  outline: none;
+  padding-left: 20px;
+}
+.add-common-folder .content div span {
+  width: 96px;
+  height: 36px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  margin-top: 30px;
+}
+.add-common-folder .content div .ok {
+  background-color: #5584EA;
+}
+.add-common-folder .content div .cancel {
+  color: #67677A;
+}
+#register-content {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url("../images/register/bg.png") no-repeat top left 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+#register-content .title {
+  width: 275px;
+  height: 84px;
+  position: absolute;
+  top: 40px;
+  left: 60px;
+}
+#register-content .content {
+  width: 1000px;
+  height: 680px;
+  background: #ffffff;
+  box-shadow: 3px 3px 20px rgba(85, 132, 234, 0.54);
+  border-radius: 6px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#register-content .content .Name {
+  font-size: 26px;
+  color: #000;
+  margin: 57px 0 0 66px;
+}
+#register-content .content .text {
+  width: 492px;
+  height: auto;
+  margin-top: 30px;
+  margin-left: 245px;
+  color: #5B5B5B;
+  font-size: 26px;
+  line-height: 40px;
+}
+#register-content .content .text input {
+  width: 342px;
+  height: 40px;
+  border: 1px solid #BEBEBE;
+  border-radius: 5px;
+  padding-left: 20px;
+  line-height: 40px;
+  font-size: 18px;
+}
+#register-content .content .select {
+  width: 492px;
+  height: auto;
+  margin-top: 30px;
+  margin-left: 245px;
+  color: #5B5B5B;
+  font-size: 26px;
+  line-height: 40px;
+  position: relative;
+}
+#register-content .content .select select {
+  width: 342px;
+  height: 40px;
+  border: 1px solid #BEBEBE;
+  border-radius: 5px;
+  padding-left: 20px;
+  line-height: 40px;
+  font-size: 18px;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+#register-content .content .select select::-ms-expand {
+  display: none;
+}
+#register-content .content .select i {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 30px;
+  pointer-events: none;
+}
+#register-content .content .btn {
+  width: 529px;
+  height: 71px;
+  background: url("../images/register/btn.png") no-repeat top left 100%;
+  margin: 30px 0 0 236px;
+}
+#register-content .content .changeBtn {
+  width: 429px;
+  height: 40px;
+  background: linear-gradient(90deg, #529ff8 0%, #4e79f1 48%, #3200ff 100%);
+  box-shadow: 0px 6px 6px rgba(165, 201, 255, 0.71);
+  color: #fff;
+  line-height: 40px;
+  border-radius: 6px;
+  margin: 30px auto 10px;
+  text-align: center;
+  font-size: 20px;
+}
+#register-content .content .readyHas {
+  font-size: 16px;
+  color: #BEBEBE;
+}
+#register-content .content .readyHas a {
+  color: #5584EA;
+}
+#rubbish-detail {
+  width: 355px;
+  height: 382px;
+  position: absolute;
+  z-index: 1000;
+  top: 30%;
+  left: 50%;
+  display: none;
+  background-color: #f1f1f1;
+  font-size: 14px;
+  color: #333;
+  box-shadow: 3px 3px 20px rgba(40, 120, 255, 0.26);
+}
+#rubbish-detail .r-fileName {
+  padding-left: 5px;
+  width: 100%;
+  height: 36px;
+  position: relative;
+  line-height: 36px;
+  vertical-align: middle;
+  background-color: #fff;
+}
+#rubbish-detail .r-fileName img {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  transform: translateY(-50%);
+}
+#rubbish-detail .content {
+  margin: 35px 10px 10px;
+  background-color: #fff;
+  position: relative;
+  border: 1px solid #CCC;
+  font-size: 10px;
+}
+#rubbish-detail .content .title {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  top: -20px;
+  left: -1px;
+  background-color: #fff;
+  border: 1px solid #CCC;
+  border-bottom: none;
+  text-align: center;
+  line-height: 20px;
+}
+#rubbish-detail .content .name {
+  width: 90%;
+  height: 70px;
+  margin: 0 auto;
+  border-bottom: 1px solid #CCC;
+  vertical-align: middle;
+  line-height: 70px;
+}
+#rubbish-detail .content .name img {
+  width: 30px;
+  height: 40px;
+}
+#rubbish-detail .content .detail {
+  width: 90%;
+  height: 30px;
+  margin: 0 auto;
+  line-height: 30px;
+}
+#rubbish-detail .content .detail .type {
+  width: 60px;
+  text-align: left;
+}
+#rubbish-detail .content .btn {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#rubbish-detail .content .btn span {
+  font-size: 12px;
+}
+.clear-worning {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 5000;
+  display: none;
+}
+.clear-worning .content {
+  width: 500px;
+  height: 200px;
+  background-color: #fff;
+  border-radius: 6px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 24px 0 0 0;
+}
+.clear-worning .content .title {
+  font-size: 18px;
+  color: #000;
+  font-weight: 700;
+  margin-left: 42px;
+}
+.clear-worning .content .title i {
+  color: #E8B139;
+  margin-left: 5px;
+}
+.clear-worning .content .warning {
+  font-size: 16px;
+  margin-top: 39px;
+}
+.clear-worning .content .clear-btn {
+  text-align: center;
+  margin-top: 36px;
+}
+.clear-worning .content .clear-btn span {
+  width: 96px;
+  height: 36px;
+  cursor: pointer;
+}
+.clear-worning .content .clear-btn #clear-cancel {
+  color: #67677A;
+  border: none;
+}
+.clear-worning .content .clear-btn #clear-ok {
+  background-color: #5584EA;
+}
+.clear-worning .content .clear-btn #exit-cancel {
+  color: #67677A;
+}
+.clear-worning .content .clear-btn #exit-ok {
+  background-color: #5584EA;
+}
+#exit-content {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 5000;
+  display: none;
+}
+#exit-content .content {
+  width: 500px;
+  height: 200px;
+  background-color: #fff;
+  border-radius: 6px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 24px 0 0 0;
+}
+#exit-content .content .title {
+  font-size: 18px;
+  color: #000;
+  font-weight: 700;
+  margin-left: 42px;
+}
+#exit-content .content .title i {
+  color: #E8B139;
+  margin-left: 5px;
+}
+#exit-content .content .warning {
+  font-size: 16px;
+  margin-top: 39px;
+}
+#exit-content .content .clear-btn {
+  text-align: center;
+  margin-top: 36px;
+}
+#exit-content .content .clear-btn span {
+  width: 96px;
+  height: 36px;
+  cursor: pointer;
+  border: none;
+}
+#exit-content .content .clear-btn #exit-cancel {
+  color: #67677A;
+}
+#exit-content .content .clear-btn #exit-ok {
+  background-color: #5584EA;
+}
+#exit-content .content .clear-btn #exit_ok {
+  background-color: #5584EA;
+}
+#lock-enter {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 50000;
+  display: none;
+}
+#lock-enter .content {
+  width: 500px;
+  height: 340px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 3px 3px 20px rgba(85, 132, 234, 0.31);
+  background-color: #fff;
+  padding-top: 32px;
+}
+#lock-enter .content .title {
+  font-size: 18px;
+  color: #000;
+  font-weight: 700;
+  margin-left: 42px;
+}
+#lock-enter .content .title i {
+  color: #E8B139;
+  margin-left: 5px;
+}
+#lock-enter .content .input {
+  text-align: center;
+}
+#lock-enter .content .input div {
+  margin-top: 20px;
+}
+#lock-enter .content .input div input {
+  width: 350px;
+  height: 32px;
+  border: none;
+  border-bottom: 1px solid #BEBEBE;
+  outline: none;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+#lock-enter .content .input div span {
+  width: 96px;
+  height: 36px;
+  border: none;
+  font-size: 16px;
+}
+#lock-enter .content .input div .cancel {
+  color: #67677A;
+}
+#lock-enter .content .input div .ok {
+  background-color: #5584EA;
+}
+/*# sourceMappingURL=main.css.map */

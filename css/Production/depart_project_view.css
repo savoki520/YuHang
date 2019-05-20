@@ -1,0 +1,270 @@
+@keyframes dblclickDemo {
+  33% {
+    top: 5px;
+  }
+  66% {
+    top: 0px;
+  }
+  100% {
+    top: 5px;
+  }
+}
+.index-content {
+  width: 100%;
+  background-color: #fff;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.index-content .ic_content {
+  width: 96.6%;
+  display: -webkit-flex;
+  flex-direction: column;
+  margin-top: -68px;
+}
+.index-content .ic_content .depart_icc_top {
+  height: 60px;
+  background-color: #F8F8F8;
+  overflow: hidden;
+  position: relative;
+  margin-top: 2px;
+}
+.index-content .ic_content .depart_icc_top .res {
+  width: 20px;
+  height: 20px;
+  margin-top: 20px;
+  margin-left: 24px;
+  float: left;
+}
+.index-content .ic_content .depart_icc_top .res .res_btn {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  background: url("../../images/depart/res.png") no-repeat;
+  background-size: 19px 19px;
+  background-position: center center;
+}
+.index-content .ic_content .depart_icc_top .res .res_btn:hover {
+  background-size: 20px 20px;
+}
+.index-content .ic_content .depart_icc_top .dict_item {
+  width: 116px;
+  padding: 20px 24px;
+  text-align: center;
+  font-size: 14px;
+  color: #5B5B5B;
+  float: left;
+  position: relative;
+  font-weight: bolder;
+  cursor: pointer;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+.index-content .ic_content .depart_icc_top .dict_item:hover {
+  text-decoration: none;
+}
+.index-content .ic_content .depart_icc_top .dict_item .dir_line {
+  width: 1px;
+  height: 20px;
+  background-color: #707070;
+  position: absolute;
+  right: -5px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.index-content .ic_content .depart_icc_top .dict_item .dir_icon {
+  width: 10px;
+  height: 14px;
+  position: absolute;
+  right: -14px;
+  top: 31px;
+  transform: translateY(-50%);
+  background: url("../../images/depart/down.png") no-repeat;
+  background-size: 100% 100%;
+  cursor: pointer;
+}
+.index-content .ic_content .depart_icc_top .down_load_btn {
+  width: 163px;
+  height: 44px;
+  line-height: 44px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #529ff8 0%, #4e79f1 48%, #3200ff 100%);
+  box-shadow: 0px 6px 6px rgba(165, 201, 255, 0.71);
+  float: right;
+  position: absolute;
+  right: 106px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.index-content .ic_content .depart_icc_top .down_load_btn .dlb_content {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.index-content .ic_content .depart_icc_top .down_load_btn .dlb_content .dlb_icon {
+  width: 60px;
+  height: 100%;
+  float: left;
+  background: url("../../images/depart/upload.png") no-repeat;
+  background-size: 20px 20px;
+  background-position: right center;
+}
+.index-content .ic_content .depart_icc_top .down_load_btn .dlb_content .dlb_title {
+  width: 103px;
+  height: 100%;
+  float: left;
+  text-indent: 10px;
+  color: #fff;
+  font-size: 18px;
+}
+.index-content .ic_content .depart_icc_top .down_load_btn .dlb_content input {
+  border: 1px dashed red;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+.index-content .ic_content .depart_icc_top .down_load_btn:hover {
+  margin-top: 7px;
+  background: linear-gradient(90deg, #529ff8 100%, #4e79f1 48%, #3200ff 0%);
+}
+.index-content .ic_content .depart_icc_middle {
+  height: 10px;
+  background-color: #fff;
+}
+.index-content .ic_content .depart_icc_bottom {
+  height: 100%;
+  background-color: #F8F8F8;
+  position: relative;
+}
+.index-content .ic_content .depart_icc_bottom .not_content {
+  width: 100%;
+  height: 620px;
+  line-height: 620px;
+  color: rgba(91, 91, 91, 0.5);
+  text-align: center;
+  font-size: 14px;
+  font-weight: bolder;
+}
+.index-content .ic_content .depart_icc_bottom .dib_content_view {
+  width: 100%;
+  height: 100%;
+}
+.index-content .ic_content .depart_icc_bottom .dib_item {
+  width: 164px;
+  height: 150px;
+  display: -webkit-flex;
+  flex-direction: column;
+  cursor: pointer;
+  float: left;
+  position: relative;
+}
+.index-content .ic_content .depart_icc_bottom .dib_item .dibi_top {
+  height: 123px;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+.index-content .ic_content .depart_icc_bottom .dib_item .dibi_bottom {
+  height: 56px;
+  line-height: 56px;
+  text-align: center;
+  font-size: 12px;
+  color: #5B5B5B;
+  font-weight: bolder;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.index-content .ic_content .depart_icc_bottom .dib_item img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  animation: dblclickDemo 2s ease-in-out 0s;
+  animation-iteration-count: infinite;
+}
+.index-content .ic_content .depart_icc_bottom .dib_item:hover {
+  background-color: rgba(54, 179, 228, 0.2);
+}
+.index-content .ic_content .depart_icc_bottom .son_demo_show {
+  overflow: hidden;
+  border: 1px dashed red;
+}
+.index-content .ic_content .depart_icc_bottom .sds_item {
+  width: 188.2px;
+  height: 182px;
+  float: left;
+  display: -webkit-flex;
+  flex-direction: column;
+  cursor: pointer;
+  position: relative;
+}
+.index-content .ic_content .depart_icc_bottom .sds_item .sdsi_top {
+  height: 104px;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+.index-content .ic_content .depart_icc_bottom .sds_item .sdsi_top img {
+  height: 70px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+.index-content .ic_content .depart_icc_bottom .sds_item .sdsi_bottom {
+  height: 78px;
+  line-height: 58px;
+  color: #5B5B5B;
+  font-size: 18px;
+  font-weight: bolder;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.index-content .ic_content .depart_icc_bottom .sds_item:hover {
+  background-color: rgba(54, 179, 228, 0.2);
+}
+.right_lists {
+  width: 100px;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.3);
+  position: absolute;
+}
+.right_lists .rl_item {
+  width: 100px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 14px;
+  text-align: left;
+  padding: 0 10px;
+}
+.right_lists .rl_item:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #fff;
+}
+.gray_back {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99999;
+  cursor: pointer;
+}
+/*# sourceMappingURL=depart_project_view.css.map */

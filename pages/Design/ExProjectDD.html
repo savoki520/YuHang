@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>常州-宇航</title>
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../lib/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/three-bounce.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/icon/font-awesome.min.css">
+</head>
+<body style="padding: 156px 0 0 343px">
+<!--头部-->
+<header class="index-header">
+    <div class="header-top"></div>
+    <div class="header-middle clearfix">
+        <div class="logo pull-left">
+            <img src="../../images/index/head-logo.png" alt="">
+        </div>
+        <div class="content pull-right clearfix">
+            <div class="set pull-right" id="exit-System">
+                <img src="../../images/index/header-exit.png" alt="">
+            </div>
+            <div class="set pull-right" id="change-Password">
+                <img src="../../images/index/header-set.png" alt="">
+            </div>
+            <div class="set pull-right" id="lock-screen">
+                <img src="../../images/index/header-lock.png" alt="">
+            </div>
+            <div class="line pull-right"></div>
+            <div class="box pull-right">
+                <img src="../../images/index/header-time.png" alt="">
+                <span id="dataTime">2018年12月26日 星期三</span>
+            </div>
+            <div class="box pull-right">
+                <img src="../../images/index/header-person.png" alt="">
+                <span id="username">张海华，欢迎您</span>
+            </div>
+        </div>
+    </div>
+    <div class="header-bottom clearfix">
+        <div class="title pull-left" id="pageTitle">
+            项目进度
+        </div>
+        <div class=" content pull-right clearfix">
+            <div class="department pull-right">
+                <img src="../../images/index/work_icon.png" alt="">
+                <span>设计部</span>
+            </div>
+            <div class="search pull-right">
+                <input type="text" name="search">
+                <img src="../../images/index/header-search.png" alt="" id="file-search">
+            </div>
+        </div>
+    </div>
+</header>
+<aside class="index-menu">
+    <div class="title">
+        <img src="../../images/menu/menu8.png" alt="">
+        <span>个人工作台</span>
+    </div>
+    <div class="menu">
+        <a href="../../index.html">
+            <img src="../../images/menu/menu1.png" alt="">
+            <span>项目查看</span>
+        </a>
+    </div>
+    <div class="menu">
+        <a href="ProjectProgress.html">
+            <img src="../../images/menu/menu2.png" alt="">
+            <span>项目进度</span>
+        </a>
+    </div>
+    <div class="menu" style="margin-top: 0;">
+        <a href="PaymentInspection.html">
+            <img src="../../images/menu/menu3.png" alt="">
+            <span>付款及报验</span>
+        </a>
+    </div>
+    <div class="menu" style="margin-top: 0;">
+        <a href="CreditDocument.html">
+            <img src="../../images/menu/menu4.png" alt="">
+            <span>资信文件</span>
+        </a>
+    </div>
+    <div class="menu active" style="margin-top: 0;">
+        <a href="ExcellentProject.html">
+            <img src="../../images/menu/menu5-1.png" alt="">
+            <span>优秀项目</span>
+        </a>
+    </div>
+    <div class="menu" style="margin-top: 0;">
+        <a href="Reimburse.html">
+            <img src="../../images/menu/menu6.png" alt="">
+            <span>报销</span>
+        </a>
+    </div>
+    <div class="menu" style="margin-top: 0;">
+        <a href="RecycleBin.html">
+            <img src="../../images/menu/menu7.png" alt="">
+            <span>回收站</span>
+        </a>
+    </div>
+</aside>
+<section class="index-content">
+    <div class="title">
+        <a style="margin-left: 24px;"><img id="Exdd-back" src="../../images/design/mulu.png" alt=""></a>
+        <span id="TimeSorting">时间排序</span>
+        <img src="../../images/design/icon1.png" alt="">
+        <div class="upload">
+            <img src="../../images/design/icon3.png" alt="">
+            <span>上传</span>
+            <input type="file" id="upload">
+        </div>
+    </div>
+    <div class="content clearfix" id="file-Content">
+
+    </div>
+</section>
+<!--loading-->
+<div class="sk-three-bounce" id="loading">
+    <div class="sk-child sk-bounce1"></div>
+    <div class="sk-child sk-bounce2"></div>
+    <div class="sk-child sk-bounce3"></div>
+</div>
+<!--重命名-->
+<div id="rename-folder" class="add-common-folder">
+    <div class="content">
+        <p class="title">项目重命名</p>
+        <div class="input">
+            <p>名称</p>
+            <input type="text" name="rename-folder">
+        </div>
+        <div>
+            <span id="rename-folder-Cancel" class="btn btn-default cancel">取消</span>
+            <span id="rename-folder-Ok" class="btn btn-primary ok">确定</span>
+        </div>
+    </div>
+</div>
+<!--锁屏-->
+<div id="lock-enter">
+    <div class="content">
+        <p class="title">提示<i class="fa fa-exclamation-circle"></i></p>
+        <div class="input">
+            <div>
+                <img src="../../images/index/lock-enter.png" alt="">
+            </div>
+            <div>
+                <input type="password" name="lock" class="text-center" placeholder="请输入登录密码">
+            </div>
+            <div style="margin-top: 60px;">
+                <span id="lock-enter-Cancel" class="btn btn-default cancel">重置</span>
+                <span id="lock-enter-Ok" class="btn btn-primary ok">确定</span>
+            </div>
+        </div>
+    </div>
+</div>
+<!--退出系统提示提示-->
+<div id="exit-content" class="clear-worning">
+    <div class="content">
+        <p class="title">
+            提示
+            <i class="fa fa-exclamation-circle"></i>
+        </p>
+        <div class="warning text-center" style="font-weight: 700;">
+            确认退出系统?
+        </div>
+        <div class="clear-btn">
+            <span id="exit-cancel" class="btn btn-default">取消</span>
+            <span id="exit-ok" class="btn btn-primary">确认 </span>
+        </div>
+    </div>
+</div>
+<script src="../../../Tool/js/jquery.min.js"></script>
+<script src="../../lib/slimescroll/jquery.slimscroll.min.js"></script>
+<script src="../../lib/js/toolsFun.js"></script>
+<script>
+    var argsFromPage;
+    $(function () {
+        $('#file-Content').slimScroll({
+            width:'100%',
+            height: '93%',
+            wheelStep: 5
+        });
+    });
+    window.onload = function(){
+        $('#loading').show();
+        argsFromPage = args();
+        $('#pageTitle').empty();
+        $('#pageTitle').css('width','300px');
+        $('#pageTitle').append(argsFromPage.file_path);
+        var json={
+            "filePath":argsFromPage.file_path,
+            "department":0
+        };
+        http('http://www.youguangchina.cn/YuHang/project/getListFiles','POST',json).done(function (res) {
+            var data=res.files;
+            var currentPath=res.currentPath;
+            if(data.length>0){
+                for(var i=0;i<data.length;i++){
+                    var fileName="";
+                    if(data[i].fileName.length>10)
+                    {
+                        fileName=data[i].fileName.substring(0,4) + "...";
+                    }
+                    else {
+                        fileName=data[i].fileName;
+                    }
+                    $(folder.getNew(currentPath,i,fileName,data[i].fileName,data[i].filePath,data[i].fileType,data[i].url)).appendTo($("#file-Content"));
+                    $('#file'+i).click(function(){
+                        folder.getFClick(this);
+                        event.stopPropagation();
+                    });
+                }
+            }
+            $('#loading').hide();
+        }).fail(function() {
+            alert('网络请求错误，请联系管理员！');
+        });
+    };
+
+
+    //上传文件
+    $('#upload').on('change',function () {
+        $('#loading').show();
+        var form = new FormData();
+        var fileName=$(this).get(0).files[0];
+        form.append("file", fileName);
+        form.append("filePath", argsFromPage.file_path);
+        console.log(form);
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "http://www.youguangchina.cn/YuHang/file/upload",
+            "method": "POST",
+            "processData": false,
+            "contentType": false,
+            "mimeType": "multipart/form-data",
+            "data": form
+        };
+        $.ajax(settings).done(function (res) {
+            $('#loading').hide();
+            location.reload();
+        });
+    });
+
+    //时间排序
+    $('#TimeSorting').on('click',function () {
+        $('#loading').show();
+        $("#file-Content").empty();
+        var json={
+            "filePath":argsFromPage.file_path,
+            "department":0
+        };
+        http('http://www.youguangchina.cn/YuHang/project/getListFilesByTime','POST',json).done(function (res) {
+            var data=res.files;
+            var currentPath=res.currentPath;
+            if(data.length>0){
+                for(var i=0;i<data.length;i++){
+                    var fileName="";
+                    if(data[i].fileName.length>10)
+                    {
+                        fileName=data[i].fileName.substring(0,4) + "...";
+                    }
+                    else {
+                        fileName=data[i].fileName;
+                    }
+                    $(folder.getNew(currentPath,i,fileName,data[i].fileName,data[i].filePath,data[i].fileType,data[i].url)).appendTo($("#file-Content"));
+                    $('#file'+i).click(function(){
+                        folder.getFClick(this);
+                        event.stopPropagation();
+                    });
+                }
+            }
+            $('#loading').hide();
+        }).fail(function() {
+            alert('网络请求错误，请联系管理员！');
+        });
+    });
+
+    //搜索
+    $('#file-search').on('click',function () {
+        $('#loading').show();
+        $("#file-Content").empty();
+        var json={
+            "filePath":argsFromPage.file_path,
+            "fileName":$("input[name='search']").val()
+        };
+        http('http://www.youguangchina.cn/YuHang/project/searchByFileName','POST',json).done(function (res) {
+            var data=res.files;
+            var currentPath=res.currentPath;
+            if(data.length>0){
+                for(var i=0;i<data.length;i++){
+                    var fileName="";
+                    if(data[i].fileName.length>10)
+                    {
+                        fileName=data[i].fileName.substring(0,4) + "...";
+                    }
+                    else {
+                        fileName=data[i].fileName;
+                    }
+                    $(folder.getNew(currentPath,i,fileName,data[i].fileName,data[i].filePath,data[i].fileType,data[i].url)).appendTo($("#file-Content"));
+                    $('#file'+i).click(function(){
+                        folder.getFClick(this);
+                        event.stopPropagation();
+                    });
+                }
+            }
+            $('#loading').hide();
+        }).fail(function() {
+            alert('网络请求错误，请联系管理员！');
+        });
+    });
+
+    $('#Exdd-back').on('click',function () {
+        window.history.back(1);
+    })
+</script>
+</body>
+</html>

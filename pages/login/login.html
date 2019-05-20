@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>常州-宇航</title>
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/icon/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/three-bounce.css">
+    <link rel="stylesheet" href="../../lib/bootstrap/bootstrap.min.css">
+</head>
+<body>
+<div id="login">
+    <div class="login-title">
+        <p class="cn">欢迎来到宇航交通设施安装有限公司</p>
+        <p class="en">Welcome To YuHang Co.Ltd</p>
+    </div>
+    <div class="login-content">
+        <img class="title" src="../../images/index/head-logo.png" alt="">
+        <p class="name">账号</p>
+        <label><input type="text" name="username" value=""></label>
+        <p class="password">密码</p>
+        <label><input type="password" name="password" value=""></label>
+        <div class="remember clearfix">
+            <span class="pull-left" style="color: #5A7BE1"><a href="register.html">注册</a></span>
+            <i id="loginCheck" index="0" class="fa fa-square"></i>
+            <span>记住密码</span>
+        </div>
+        <div class="btn" id="login-ok">
+            <img src="../../images/login/ok.png" alt="">
+        </div>
+    </div>
+</div>
+<!--loading-->
+<div class="sk-three-bounce" id="loading">
+    <div class="sk-child sk-bounce1"></div>
+    <div class="sk-child sk-bounce2"></div>
+    <div class="sk-child sk-bounce3"></div>
+</div>
+</body>
+<script src="../../../Tool/js/jquery.min.js"></script>
+<script src="../../lib/js/toolsFun.js"></script>
+<script>
+    window.onload = function(){
+        //页面初始化时，如果帐号密码cookie存在则填充
+        if(getCookie('user') && getCookie('pswd')){
+            $("input[name='username']").val(getCookie('user'));
+            $("input[name='password']").val(getCookie('pswd'));
+            remember();
+        }
+    };
+    //记住密码
+    $('#loginCheck').on('click',function () {
+        if($(this).attr('index')=='0'){
+            $(this).attr('index','1');
+            $(this).removeClass('fa-square');
+            $(this).addClass('fa-check-square-o');
+            $(this).parent().css('color','#5A7BE1');
+            setCookie('user',$("input[name='username']").val(),7); //保存帐号到cookie，有效期7天
+            setCookie('pswd',$("input[name='password']").val(),7); //保存密码到cookie，有效期7天
+            sessionStorage.yuhangname=$("input[name='username']").val();
+        }
+        else {
+            $(this).attr('index','0');
+            $(this).removeClass('fa-check-square-o');
+            $(this).addClass('fa-square');
+            $(this).parent().css('color','#CCC');
+            delCookie('user');
+            delCookie('pswd');
+        }
+    });
+    $('#login-ok').on('click',function () {
+        $('#loading').show();
+        var json={
+            "account":$("input[name='username']").val(),
+            "password":$("input[name='password']").val()
+        };
+        http('http://www.youguangchina.cn/YuHang/user/login','POST',json).done(function (res) {
+            $('#loading').hide();
+            if(res.result=="success"){
+                localStorage.yuhangname=$("input[name='username']").val();
+                localStorage.yuhangrelname=res.name;
+                localStorage.yuhangdepartment=res.department;
+                localStorage.yuhanguserId=res.userId;
+                if(res.department=="0"){
+                    //跳转到设计部
+                    location.href='../../index.html';
+                }
+                else if(res.department=="1"){
+                    //跳转到生产部
+                    location.href='../Production/depart_project_view.html';
+                }
+                else if(res.department=="2"){
+                    //跳转到工程部
+                    location.href='../Engineering/Engineering.html';
+                }
+                else if(res.department=="3"){
+                    //跳转到会计页面
+                    location.href='../Finance/ReimburseList.html';
+                }
+                else if(res.department=="4"){
+                    //跳转到会计页面
+                    location.href='boss.html';
+                }
+            }
+            else {
+                alert(res.error);
+            }
+        }).fail(function() {
+            alert('网络请求错误，请联系管理员！');
+        });
+    });
+    function remember(){
+        $(this).attr('index','1');
+        $(this).removeClass('fa-square');
+        $(this).addClass('fa-check-square-o');
+        $(this).parent().css('color','#5A7BE1');
+    }
+</script>
+</html>

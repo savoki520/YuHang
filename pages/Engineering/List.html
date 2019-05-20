@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>常州-宇航</title>
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/engineering.css">
+    <link rel="stylesheet" href="../../css/three-bounce.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/icon/font-awesome.min.css">
+    <link rel="stylesheet" href="../../lib/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="all" href="../../lib/bootstrap-daterangepicker/daterangepicker.css" />
+    <script src="../../lib/js/Engineering/tools.js"></script>
+    <script src="../../lib/vue/vue.min.js"></script>
+</head>
+<body style="padding: 156px 60px 0 343px;">
+<!--头部-->
+<header class="index-header">
+    <div class="header-top"></div>
+    <div class="header-middle clearfix">
+        <div class="logo pull-left">
+            <img src="../../images/index/head-logo.png" alt="">
+        </div>
+        <div class="content pull-right clearfix">
+            <div class="set pull-right dropdown" data-toggle="dropdown" id="get-message">
+                <img src="../../images/engineering/message.png" class="dropdown-toggle message"  data-toggle="dropdown" alt="">
+                <div class="warning add"></div>
+                <ul class="dropdown-menu">
+                    <li class="menu-header">
+                        <span class="active" id="unread">未读消息</span>
+                        <span id="read">历史消息</span>
+                        <i class="fa fa-globe" id="read_ok">
+                            <p>全部已读</p >
+                        </i>
+                    </li>
+                    <li class="menu-body">
+                    </li>
+                    <li class="menu-footer" id="">
+                        <img class="check" src="../../images/index/checkbox1.png" alt="">
+                        <span>仅看部门相关消息</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="set pull-right" id="exit-System">
+                <img src="../../images/index/header-exit.png" alt="">
+            </div>
+            <div class="set pull-right" id="change_Password">
+                <img src="../../images/index/header-set.png" alt="">
+            </div>
+            <div class="set pull-right" id="lock-screen">
+                <img src="../../images/index/header-lock.png" alt="">
+            </div>
+            <div class="line pull-right"></div>
+            <div class="box pull-right">
+                <img src="../../images/index/header-time.png" alt="">
+                <span id="dataTime">2018年12月26日 星期三</span>
+            </div>
+            <div class="box pull-right">
+                <img src="../../images/index/header-person.png" alt="">
+                <span id="username">张海华，欢迎您</span>
+            </div>
+        </div>
+    </div>
+    <div class="header-bottom clearfix">
+        <div class="title pull-left tc_title">
+            项目清单
+        </div>
+        <div class=" content pull-right clearfix">
+            <div class="department pull-right">
+                <img src="../../images/index/work_icon.png" alt="">
+                <span>工程部</span>
+            </div>
+            <div class="search pull-right">
+                <input type="text" name="search" id="config-demo">
+                <img src="../../images/index/header-search.png" alt="" id="file-search">
+                <i class="glyphicon glyphicon-calendar fa fa-calendar" id="demo"></i>
+            </div>
+        </div>
+    </div>
+</header>
+<aside class="index-menu">
+    <div class="title">
+        <img src="../../images/menu/menu8.png" alt="">
+        <span>个人工作台</span>
+    </div>
+    <div class="menu">
+        <a href="Engineering.html">
+            <img src="../../images/engineering/see_icon.png" class="see_icon view">
+            <span>项目查看</span>
+        </a>
+    </div>
+    <div class="menu active">
+        <a href="List.html">
+            <img src="../../images/engineering/list_icon.png" class="see_icon list">
+            <span>项目清单</span>
+        </a>
+    </div>
+    <div class="menu" style="margin-top: 0;">
+        <a href="Log.html">
+            <img src="../../images/engineering/log_one_icon.png" class="see_icon log">
+            <span>项目日志</span>
+        </a>
+    </div>
+    <div class="menu" style="margin-top: 0;">
+        <a href="depart_reimbursement.html">
+            <img src="../../images/engineering/re_icon.png" class="see_icon_two reim">
+            <span>报销</span>
+        </a>
+    </div>
+    <!--<div class="menu" style="margin-top: 0;">-->
+        <!--<img src="../../images/engineering/remove_icon.png" class="see_icon_one remove">-->
+        <!--<a href="#">-->
+            <!--<span>回收站</span>-->
+        <!--</a>-->
+    <!--</div>-->
+</aside>
+<section class="index-content">
+    <!--<h1>项目查看的内容</h1>-->
+    <div class="title">
+        <a style="margin-left: 24px;" class="retu" onclick="list_retu()">
+            <img src="../../images/design/mulu.png" alt="">
+        </a>
+        <span>项目编号</span>
+        <span id="TimeSorting" class="list_order">时间排序</span>
+        <img src="../../images/design/icon1.png" alt="" >
+        <div class="upload " id="header_down">
+            <img src="../../images/design/icon3.png" alt="">
+            <span>上传</span>
+            <input type="file" class="header_file" id="fi">
+        </div>
+    </div>
+    <div class="ListBox">
+        <div class="List_content_index"></div>
+        <div class="List_content_box"></div>
+        <!--重命名-->
+    </div>
+</section>
+
+<div class="add-common-folder List_Renamebox">
+    <div class="content">
+        <p class="title">文件重命名</p >
+        <div class="input">
+            <p>名称</p >
+            <input type="text" name="folder" style="background: white">
+        </div>
+        <div>
+            <span class="btn btn-default cancel List_rename_cancel">取消</span>
+            <span class="btn btn-primary ok List_rename_sub">确定</span>
+        </div>
+    </div>
+</div>
+
+<div class="sk-three-bounce" id="loading">
+    <div class="sk-child sk-bounce1"></div>
+    <div class="sk-child sk-bounce2"></div>
+    <div class="sk-child sk-bounce3"></div>
+</div>
+<!--锁屏-->
+<div id="lock-enter">
+    <div class="content">
+        <p class="title">提示<i class="fa fa-exclamation-circle"></i></p>
+        <div class="input">
+            <div>
+                <img src="../../images/index/lock-enter.png" alt="">
+            </div>
+            <div>
+                <input type="password" name="lock" class="text-center" placeholder="请输入登录密码">
+            </div>
+            <div style="margin-top: 60px;">
+                <span id="lock-enter-Cancel" class="btn btn-default cancel">重置</span>
+                <span id="lock-enter-Ok" class="btn btn-primary ok">确定</span>
+            </div>
+        </div>
+    </div>
+</div>
+<!--退出系统提示提示-->
+<div id="exit-content" class="clear-worning">
+    <div class="content">
+        <p class="title">
+            提示
+            <i class="fa fa-exclamation-circle"></i>
+        </p>
+        <div class="warning text-center" style="font-weight: 700;">
+            确认退出系统?
+        </div>
+        <div class="clear-btn">
+            <span id="exit-cancel" class="btn btn-default">取消</span>
+            <span id="exit-ok" class="btn btn-primary">确认 </span>
+        </div>
+    </div>
+</div>
+<script src="../../../Tool/js/jquery.min.js"></script>
+<script src="../../lib/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../lib/bootstrap-daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="../../lib/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script src="../../lib/slimescroll/jquery.slimscroll.min.js"></script>
+<script src="../../lib/js/Engineering/project.js"></script>
+<script src="../../lib/js/toolsFun.js"></script>
+
+</body>
+<script>
+    sessionStorage.setItem("key","List");
+    $('.menu-body').slimScroll({
+        width:'100%',
+        height: '400px',
+        wheelStep: 5,
+        alwaysVisible: true,
+    });
+//    $('#demo').daterangepicker({
+//        "opens": "left"
+//    }, function(start, end, label) {
+//        $("#config-demo").val(start.format('YYYY/MM/DD') + "-" + end.format('YYYY/MM/DD'))
+//    });
+</script>
+</html>

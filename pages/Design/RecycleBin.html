@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>常州-宇航</title>
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../lib/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/icon/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/three-bounce.css">
+    <link rel="stylesheet" href="../../css/main.css">
+</head>
+<body style="padding: 156px 0 0 343px">
+<!--头部-->
+<header class="index-header">
+    <div class="header-top"></div>
+    <div class="header-middle clearfix">
+        <div class="logo pull-left">
+            <img src="../../images/index/head-logo.png" alt="">
+        </div>
+        <div class="content pull-right clearfix">
+            <div class="set pull-right" id="exit-System">
+                <img src="../../images/index/header-exit.png" alt="">
+            </div>
+            <div class="set pull-right" id="change-Password">
+                <img src="../../images/index/header-set.png" alt="">
+            </div>
+            <div class="set pull-right" id="lock-screen">
+                <img src="../../images/index/header-lock.png" alt="">
+            </div>
+            <div class="line pull-right"></div>
+            <div class="box pull-right">
+                <img src="../../images/index/header-time.png" alt="">
+                <span id="dataTime">2018年12月26日 星期三</span>
+            </div>
+            <div class="box pull-right">
+                <img src="../../images/index/header-person.png" alt="">
+                <span id="username">张海华，欢迎您</span>
+            </div>
+        </div>
+    </div>
+    <div class="header-bottom clearfix">
+        <div class="title pull-left" id="pageTitle">
+            回收站
+        </div>
+        <div class=" content pull-right clearfix">
+            <div class="department pull-right">
+                <img src="../../images/index/work_icon.png" alt="">
+                <span>设计部</span>
+            </div>
+            <div class="search pull-right">
+                <input type="text" name="search">
+                <img src="../../images/index/header-search.png" alt="" id="file-search">
+            </div>
+        </div>
+    </div>
+</header>
+<aside class="index-menu">
+    <div class="title">
+        <img src="../../images/menu/menu8.png" alt="">
+        <span>个人工作台</span>
+    </div>
+    <div class="menu">
+        <a href="../../index.html">
+            <img src="../../images/menu/menu1.png" alt="">
+            <span>项目查看</span>
+        </a>
+    </div>
+    <div class="menu">
+        <a href="ProjectProgress.html">
+            <img src="../../images/menu/menu2.png" alt="">
+            <span>项目进度</span>
+        </a>
+    </div>
+    <div class="menu" style="margin-top: 0;">
+        <a href="PaymentInspection.html">
+            <img src="../../images/menu/menu3.png" alt="">
+            <span>付款及报验</span>
+        </a>
+    </div>
+    <div class="menu" style="margin-top: 0;">
+        <a href="CreditDocument.html">
+            <img src="../../images/menu/menu4.png" alt="">
+            <span>资信文件</span>
+        </a>
+    </div>
+    <div class="menu" style="margin-top: 0;">
+        <a href="ExcellentProject.html">
+            <img src="../../images/menu/menu5.png" alt="">
+            <span>优秀项目</span>
+        </a>
+    </div>
+    <div class="menu" style="margin-top: 0;">
+        <a href="Reimburse.html">
+            <img src="../../images/menu/menu6.png" alt="">
+            <span>报销</span>
+        </a>
+    </div>
+    <div class="menu active" style="margin-top: 0;">
+        <a href="javaScript:void(0)">
+            <img src="../../images/menu/menu7-1.png" alt="">
+            <span>回收站</span>
+        </a>
+    </div>
+</aside>
+<section class="index-content">
+    <div class="clearTitle">
+        <span id="TimeSorting">时间排序</span>
+        <img src="../../images/design/icon1.png" alt="">
+        <div class="clear-btn" id="clear-folder_btn">
+            <img src="../../images/design/delete.png" alt="">
+            <span>清空</span>
+        </div>
+    </div>
+    <div class="content clearfix" id="rubish-content">
+    </div>
+</section>
+<!--回收站文件的详细内容-->
+<div id="rubbish-detail">
+    <div class="r-fileName">
+        <span>属性</span>
+        <img id="r-close" src="../../images/index/header-close.png" alt="">
+    </div>
+    <div class="content">
+        <div class="title">常规</div>
+        <div class="name" id="r-fileName">
+            <img src="../../images/design/pic5.png" alt="">
+            <span>1.png</span>
+        </div>
+        <div style="padding:10px 0 10px">
+            <div class="detail clearfix">
+                <div class="type pull-left">类型：</div>
+                <div class="pull-left" id="r-type">Png文件</div>
+            </div>
+            <div class="detail clearfix" style="height:40px;padding-bottom: 10px;border-bottom: 1px solid #CCC;">
+                <div class="type pull-left">原位置：</div>
+                <div class="pull-left" id="r-path">项目查看/项目001/1.png</div>
+            </div>
+        </div>
+        <div class="detail clearfix" style="height:40px;border-bottom: 1px solid #CCC;">
+            <div class="type pull-left">删除时间：</div>
+            <div class="pull-left" id="r-time">2019 01-10 9:30:00:00</div>
+        </div>
+        <div class="btn">
+            <span id="r-ok" class="btn btn-default">确定</span>
+            <span id="r-return" class="btn btn-default">还原</span>
+            <span id="r-delete" class="btn btn-default">删除</span>
+        </div>
+    </div>
+</div>
+<!--清空垃圾箱提示-->
+<div id="clear-worning" class="clear-worning">
+    <div class="content">
+        <p class="title">
+            提示
+            <i class="fa fa-exclamation-circle"></i>
+        </p>
+        <div class="warning text-center" style="font-weight: 700;">
+            清空后文件无法找回！
+        </div>
+        <div class="clear-btn">
+            <span id="clear-cancel" class="btn btn-default">取消</span>
+            <span id="clear-ok" class="btn btn-primary">确认 </span>
+        </div>
+    </div>
+</div>
+<!--loading-->
+<div class="sk-three-bounce" id="loading">
+    <div class="sk-child sk-bounce1"></div>
+    <div class="sk-child sk-bounce2"></div>
+    <div class="sk-child sk-bounce3"></div>
+</div>
+<!--锁屏-->
+<div id="lock-enter">
+    <div class="content">
+        <p class="title">提示<i class="fa fa-exclamation-circle"></i></p>
+        <div class="input">
+            <div>
+                <img src="../../images/index/lock-enter.png" alt="">
+            </div>
+            <div>
+                <input type="password" name="lock" class="text-center" placeholder="请输入登录密码">
+            </div>
+            <div style="margin-top: 60px;">
+                <span id="lock-enter-Cancel" class="btn btn-default cancel">重置</span>
+                <span id="lock-enter-Ok" class="btn btn-primary ok">确定</span>
+            </div>
+        </div>
+    </div>
+</div>
+<!--退出系统提示提示-->
+<div id="exit-content" class="clear-worning">
+    <div class="content">
+        <p class="title">
+            提示
+            <i class="fa fa-exclamation-circle"></i>
+        </p>
+        <div class="warning text-center" style="font-weight: 700;">
+            确认退出系统?
+        </div>
+        <div class="clear-btn">
+            <span id="exit-cancel" class="btn btn-default">取消</span>
+            <span id="exit-ok" class="btn btn-primary">确认 </span>
+        </div>
+    </div>
+</div>
+<script src="../../../Tool/js/jquery.min.js"></script>
+<script src="../../lib/slimescroll/jquery.slimscroll.min.js"></script>
+<script src="../../lib/js/toolsFun.js"></script>
+<script>
+    $(function () {
+        $('#rubish-content').slimScroll({
+            width:'100%',
+            height: '93%',
+            wheelStep: 5
+        });
+    });
+    window.onload = function(){
+        $('#loading').show();
+        http('http://www.youguangchina.cn/YuHang/recycle/getAllRubbish','GET',"").done(function (res) {
+            var data=res.rubbishs;
+            for(var i=0;i<data.length;i++){
+                var fileName="";
+                if(data[i].fileName.length>10)
+                {
+                    fileName=data[i].fileName.substring(0,4) + "...";
+                }
+                else {
+                    fileName=data[i].fileName;
+                }
+                $(rubbish.getNew(i,data[i].rubbishId,fileName,data[i].fileName,data[i].originalPath,data[i].fileType,data[i].moveTime)).appendTo($("#rubish-content"));
+                $('#file'+i).click(function(){
+                    rubbish.getClick(this);
+                    event.stopPropagation();
+                });
+            }
+            $('#loading').hide();
+        }).fail(function() {
+            alert('网络请求错误，请联系管理员！');
+        });
+    };
+
+
+    //时间排序
+    $('#TimeSorting').on('click',function () {
+        $('#loading').show();
+        $("#rubish-content").empty();
+        http('http://www.youguangchina.cn/YuHang/recycle/getAllRubbishByTime','GET',"").done(function (res) {
+            var data=res.rubbishs;
+            for(var i=0;i<data.length;i++){
+                var fileName="";
+                if(data[i].fileName.length>10)
+                {
+                    fileName=data[i].fileName.substring(0,4) + "...";
+                }
+                else {
+                    fileName=data[i].fileName;
+                }
+                $(rubbish.getNew(i,data[i].rubbishId,fileName,data[i].fileName,data[i].originalPath,data[i].fileType,data[i].moveTime)).appendTo($("#rubish-content"));
+                $('#file'+i).click(function(){
+                    rubbish.getClick(this);
+                    event.stopPropagation();
+                });
+            }
+            $('#loading').hide();
+        }).fail(function() {
+            alert('网络请求错误，请联系管理员！');
+        });
+    });
+
+    //搜索
+    $('#file-search').on('click',function () {
+        $('#loading').show();
+        var json={
+            "fileName":$("input[name='search']").val()
+        };
+        $("#rubish-content").empty();
+        http('http://www.youguangchina.cn/YuHang/recycle/searchByFileName','POST',json).done(function (res) {
+            var data=res.rubbishs;
+            for(var i=0;i<data.length;i++){
+                var fileName="";
+                if(data[i].fileName.length>10)
+                {
+                    fileName=data[i].fileName.substring(0,4) + "...";
+                }
+                else {
+                    fileName=data[i].fileName;
+                }
+                $(rubbish.getNew(i,data[i].rubbishId,fileName,data[i].fileName,data[i].originalPath,data[i].fileType,data[i].moveTime)).appendTo($("#rubish-content"));
+                $('#file'+i).click(function(){
+                    rubbish.getClick(this);
+                    event.stopPropagation();
+                });
+            }
+            $('#loading').hide();
+        }).fail(function() {
+            alert('网络请求错误，请联系管理员！');
+        });
+    });
+
+
+
+
+    //确定
+    $('#r-ok').on('click',function () {
+        $('#rubbish-detail').hide();
+    });
+
+
+    //关闭
+    $('#r-close').on('click',function () {
+        $('#rubbish-detail').hide();
+    });
+
+
+    //还原
+    $('#r-return').on('click',function () {
+        $('#loading').show();
+        var json={
+            rubbishId:$('#rubbish-detail').attr('index')
+        };
+        http('http://www.youguangchina.cn/YuHang/recycle/returnToOriginal','POST',json).done(function (res) {
+            console.log(res);
+            if(res=="success"){
+                location.reload();
+            }
+            $('#loading').hide();
+        }).fail(function() {
+            alert('网络请求错误！');
+        });
+    });
+
+
+    //删除
+    $('#r-delete').on('click',function () {
+        $('#loading').show();
+        var json={
+            rubbishId:$('#rubbish-detail').attr('index')
+        };
+        console.log(json);
+        http('http://www.youguangchina.cn/YuHang/recycle/deleteRubbish','POST',json).done(function (res) {
+            console.log(res);
+            if(res=="success"){
+                location.reload();
+            }
+            $('#loading').hide();
+        }).fail(function() {
+            alert('网络请求错误！');
+        });
+    });
+
+
+    //清空文件夹
+    $('#clear-folder_btn').on('click',function () {
+        $('#clear-worning').show();
+    });
+    $('#clear-cancel').on('click',function () {
+        $('#clear-worning').hide();
+    });
+    $('#clear-ok').on('click',function () {
+        $('#loading').show();
+        http('http://www.youguangchina.cn/YuHang/recycle/clearRubbish','GET','').done(function (res) {
+            if(res.result=="success"){
+                location.reload();
+            }
+            $('#loading').hide();
+        }).fail(function() {
+            alert('网络请求错误！');
+        });
+    });
+
+
+
+    var rubbish={};
+    rubbish.getNew=function($Id,$rId,$Name,$FileName,$Path,$Type,$Time){
+        var folderhtml="";
+        switch ($Type) {
+            case "directory":
+                folderhtml+=' <div index="'+$rId+'" id="file'+$Id+'" data-name="'+$FileName+'" data-time="'+$Time+'" data-filetype="'+$Type+'" data-filepath="'+$Path+'" class="folder pull-left">\n' +
+                    '                <img src="../../images/design/pic1.png" alt="">\n' +
+                    '                <span>'+$Name+'</span>\n' +
+                    '            </div>';
+                break;
+            case "xls":
+            case "xlsx":
+                folderhtml+='<div index="'+$rId+'" id="file'+$Id+'" data-name="'+$FileName+'" data-time="'+$Time+'" data-filetype="'+$Type+'" data-filepath="'+$Path+'" class="folder pull-left">\n' +
+                    '            <img src="../../images/design/pic7.png" alt="">\n' +
+                    '            <p>'+$Name+'</p>\n' +
+                    '        </div>';
+                break;
+            case "txt":
+            case "doc":
+            case "docx":
+                folderhtml+='<div index="'+$rId+'" id="file'+$Id+'" data-name="'+$FileName+'" data-time="'+$Time+'" data-filetype="'+$Type+'" data-filepath="'+$Path+'" class="folder pull-left">\n' +
+                    '            <img src="../../images/design/pic6.png" alt="">\n' +
+                    '            <p>'+$Name+'</p>\n' +
+                    '        </div>';
+                break;
+            case "pdf":
+                folderhtml+='<div index="'+$rId+'" id="file'+$Id+'" data-name="'+$FileName+'" data-time="'+$Time+'" data-filetype="'+$Type+'" data-filepath="'+$Path+'" class="folder pull-left">\n' +
+                    '            <img src="../../images/design/pic5.png" alt="">\n' +
+                    '            <p>'+$Name+'</p>\n' +
+                    '        </div>';
+                break;
+            case "jpg":
+            case "png":
+            case "jepg":
+            case "gif":
+            case "bmp":
+                folderhtml+='<div index="'+$rId+'" id="file'+$Id+'" data-name="'+$FileName+'" data-time="'+$Time+'" data-filetype="'+$Type+'" data-filepath="'+$Path+'" class="folder pull-left">\n' +
+                    '            <img src="../../images/design/pic8.png" alt="">\n' +
+                    '            <p>'+$Name+'</p>\n' +
+                    '        </div>';
+                break;
+
+        }
+        return folderhtml;
+    };
+    rubbish.getClick=function(item){
+        $('#rubbish-detail').attr('index',$(item).attr('index'));
+        var img_path;
+        switch ($(item).attr('data-filetype')) {
+            case "directory":
+                img_path="../../images/design/pic1.png";
+                break;
+            case "xls":
+            case "xlsx":
+                img_path="../../images/design/pic7.png";
+                break;
+            case "txt":
+            case "doc":
+            case "docx":
+                img_path="../../images/design/pic6.png";
+                break;
+            case "pdf":
+                img_path="../../images/design/pic5.png";
+                break;
+            case "jpg":
+            case "png":
+            case "jepg":
+            case "gif":
+            case "bmp":
+                img_path="../../images/design/pic8.png";
+                break;
+        }
+        $('#r-fileName').children('img').attr('src',img_path);
+        $('#r-fileName').children('span').empty();
+        $('#r-fileName').children('span').html($(item).attr('data-name'));
+
+        $('#r-type').empty();
+        $('#r-type').html($(item).attr('data-filetype'));
+
+        $('#r-path').empty();
+        $('#r-path').html($(item).attr('data-filepath'));
+
+        $('#r-time').empty();
+        $('#r-time').html($(item).attr('data-time'));
+
+        $('#rubbish-detail').show();
+
+    };
+
+
+
+
+</script>
+</body>
+</html>

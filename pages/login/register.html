@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>常州-宇航</title>
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/icon/font-awesome.min.css">
+    <link rel="stylesheet" href="../../lib/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/three-bounce.css">
+</head>
+<body>
+<div id="register-content">
+    <img class="title" src="../../images/register/logo.png" alt="">
+    <div class="content">
+        <div class="Name">请填写注册信息</div>
+        <div class="text clearfix">
+            <span>姓名:</span>
+            <input type="text" name="username" class="pull-right">
+        </div>
+        <div class="text clearfix">
+            <span>密码:</span>
+            <input type="password" name="password" class="pull-right">
+        </div>
+        <div class="text clearfix">
+            <span>确认密码:</span>
+            <input type="password" name="confirm-password" class="pull-right">
+        </div>
+        <div class="text clearfix">
+            <span>邮箱:</span>
+            <input type="text" name="mail" class="pull-right">
+        </div>
+        <div class="text clearfix">
+            <span>电话:</span>
+            <input type="text" name="tel" class="pull-right">
+        </div>
+        <div class="select clearfix">
+            <span>部门:</span>
+            <select name="department" id="" class="pull-right">
+                <option value="design">设计部</option>
+                <option value="engineering">工程部</option>
+                <option value="production">生产部</option>
+                <option value="accountant">会计</option>
+            </select>
+            <i class="fa fa-angle-down"></i>
+        </div>
+        <div class="btn" id="register-ok"></div>
+        <div class="readyHas text-center">
+            <p>已有账号？<a href="login.html">去登录</a></p>
+        </div>
+    </div>
+</div>
+<!--loading-->
+<div class="sk-three-bounce" id="loading">
+    <div class="sk-child sk-bounce1"></div>
+    <div class="sk-child sk-bounce2"></div>
+    <div class="sk-child sk-bounce3"></div>
+</div>
+</body>
+<script src="../../../Tool/js/jquery.min.js"></script>
+<script src="../../lib/js/toolsFun.js"></script>
+<script>
+    $('#register-ok').on('click',function () {
+        var name=$("input[name='username']").val();
+        var password=$("input[name='password']").val();
+        var confirm_password=$("input[name='confirm-password']").val();
+        var mail=$("input[name='mail']").val();
+        var tel=$("input[name='tel']").val();
+        var department=$("select[name='department']").val();
+        if(name==""){
+            alert('用户名不能为空，请输入用户名');
+            return;
+        }
+        if(password==""){
+            alert('密码不能为空，请输入密码');
+            return;
+        }
+        if(confirm_password==""){
+            alert('确认密码不能为空，请输入确认密码');
+            return;
+        }
+        if(password!=confirm_password){
+            alert('两次密码输入不同，请重新输入');
+            return;
+        }
+        if(tel==""){
+            alert('手机号不能为空，请输入手机号');
+            return;
+        }
+        $('#loading').show();
+        var json={
+            "name":name,
+            "password":password,
+            "tel":tel,
+            "email":mail,
+            "department":department
+        }
+        http('http://www.youguangchina.cn/YuHang/user/registerUser','POST',json).done(function (res) {
+            if(res.result=='success'){
+                alert('注册成功');
+            }
+            $('#loading').hide();
+        }).fail(function() {
+            alert('网络请求错误，请联系管理员！');
+        });
+    })
+</script>
+</html>

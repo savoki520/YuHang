@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>常州-宇航</title>
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/baoxiao.css">
+    <link rel="stylesheet" href="../../css/Production/depart_reimbursement.css">
+    <link rel="stylesheet" href="../../css/three-bounce.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../lib/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/icon/font-awesome.min.css">
+    <link rel="stylesheet" href="../../lib/fwb/simditor.css">
+    <link rel="stylesheet" href="../../css/Production/base.css">
+    <!--<link rel="stylesheet" href="../../lib/bootstrap/bootstrap.min.css">-->
+
+    <script src="../../lib/vue/vue.min.js"></script>
+    <script src="../../lib/js/Production/tools.js"></script>
+    <link rel="stylesheet" href="../../css/icon/font-awesome.min.css">
+
+</head>
+<body style="padding: 222px 0 0 343px">
+<div id="reimbursement" class="reimbursement">
+    <!--头部-->
+    <header class="index-header">
+        <div class="header-top"></div>
+        <div class="header-middle clearfix">
+            <div class="logo pull-left">
+                <img src="../../images/index/head-logo.png" alt="">
+            </div>
+            <div class="content pull-right clearfix">
+                <div class="set pull-right dropdown" data-toggle="dropdown" id="get-message">
+                    <img src="../../images/engineering/message.png" class="dropdown-toggle"  data-toggle="dropdown" alt="">
+                    <div class="warning"></div>
+                    <ul class="dropdown-menu">
+                        <li class="menu-header">
+                            <span class="active">未读消息</span>
+                            <span>历史消息</span>
+                            <!--<i class="fa fa-check"></i>-->
+                        </li>
+                        <li class="menu-body">
+                            <ul>
+                                <li>
+                                    <img src="" alt="">
+                                    张三删除了项目查看/项目001/生产部的XXX文件
+                                    <span class="time pull-right">18:56</span>
+                                </li>
+                                <li>
+                                    <img src="" alt="">
+                                    张三删除了项目查看/项目001/生产部的XXX文件
+                                    <span class="time pull-right">18:56</span>
+                                </li>
+                                <li>
+                                    <img src="" alt="">
+                                    张三删除了项目查看/项目001/生产部的XXX文件
+                                    <span class="time pull-right">18:56</span>
+                                </li>
+                                <li>
+                                    <img src="" alt="">
+                                    张三删除了项目查看/项目001/生产部的XXX文件
+                                    <span class="time pull-right">18:56</span>
+                                </li>
+                                <li>
+                                    <img src="" alt="">
+                                    张三删除了项目查看/项目001/生产部的XXX文件
+                                    <span class="time pull-right">18:56</span>
+                                </li>
+                                <li>
+                                    <img src="" alt="">
+                                    张三删除了项目查看/项目001/生产部的XXX文件
+                                    <span class="time pull-right">18:56</span>
+                                </li>
+                                <li>
+                                    <img src="" alt="">
+                                    张三删除了项目查看/项目001/生产部的XXX文件
+                                    <span class="time pull-right">18:56</span>
+                                </li>
+                                <li>
+                                    <img src="" alt="">
+                                    张三删除了项目查看/项目001/生产部的XXX文件
+                                    <span class="time pull-right">18:56</span>
+                                </li>
+                                <li>
+                                    <img src="" alt="">
+                                    张三删除了项目查看/项目001/生产部的XXX文件
+                                    <span class="time pull-right">18:56</span>
+                                </li>
+                                <li>
+                                    <img src="" alt="">
+                                    张三删除了项目查看/项目001/生产部的XXX文件
+                                    <span class="time pull-right">18:56</span>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-footer" id="">
+                            <img src="../../images/index/checkbox1.png" alt="">
+                            <span>仅看部门相关消息</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="set pull-right" id="exit-System">
+                    <img src="../../images/index/header-exit.png" alt="">
+                </div>
+                <div class="set pull-right" id="change_Password">
+                    <img src="../../images/index/header-set.png" alt="">
+                </div>
+                <div class="set pull-right" id="lock-screen">
+                    <img src="../../images/index/header-lock.png" alt="">
+                </div>
+                <div class="line pull-right"></div>
+                <div class="box pull-right">
+                    <img src="../../images/index/header-time.png" alt="">
+                    <span id="dataTime">2018年12月26日 星期三</span>
+                </div>
+                <div class="box pull-right">
+                    <img src="../../images/index/header-person.png" alt="">
+                    <span id="username">张海华，欢迎您</span>
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom clearfix">
+            <div class="title pull-left">
+                项目查看
+            </div>
+            <div class=" content pull-right clearfix">
+                <div class="department pull-right">
+                    <img src="../../images/index/work_icon.png" alt="">
+                    <span>设计部</span>
+                </div>
+                <div class="search pull-right">
+                    <input type="text" name="search">
+                    <img src="../../images/index/header-search.png" alt="" id="file-search">
+                </div>
+            </div>
+        </div>
+    </header>
+    <aside class="index-menu">
+        <div class="title">
+            <img src="../../images/menu/menu8.png" alt="">
+            <span>个人工作台</span>
+        </div>
+        <div class="menu">
+            <a href="Engineering.html">
+                <img src="../../images/menu/menu1.png" class="see_icon view">
+                <span>项目查看</span>
+            </a>
+        </div>
+        <div class="menu">
+            <a href="List.html">
+                <img src="../../images/engineering/list_one_icon.png" style="width: 20px;height: auto;" class="see_icon list">
+                <span>项目清单</span>
+            </a>
+        </div>
+        <div class="menu" style="margin-top: 0;">
+            <a href="Log.html">
+                <img src="../../images/engineering/log_one_icon.png" style="width: 20px;height: auto;" class="see_icon log">
+                <span>项目日志</span>
+            </a>
+        </div>
+        <div class="menu active" style="margin-top: 0;">
+            <a href="depart_reimbursement.html">
+                <img src="../../images/menu/menu6-1.png" class="see_icon_two reim">
+                <span>报销</span>
+            </a>
+        </div>
+    </aside>
+    <section class="index-content">
+        <div class="ic_content">
+            <div class="depart_icc_top">
+                <span>填写资料</span>
+            </div>
+            <div class="depart_icc_middle"></div>
+            <div id="weChat">
+                <div class="depart_icc_bottom">
+                    <!--标题说明/人员名称-->
+                    <div class="dib_title_name">
+                        <div class="dtn_title dtn_item">
+                            <div class="dt_text">标题说明</div>
+                            <div class="dt_input"><input type="text" placeholder="请输入报销说明" v-model="reimbursements_obj.title"></div>
+                        </div>
+                        <div class="dtn_name dtn_item">
+                            <div class="dt_text">人员名称</div>
+                            <div class="dt_input"><input type="text" placeholder="请输入人员姓名" v-model="reimbursements_obj.name"></div>
+                        </div>
+                    </div>
+                    <!--上传图片-->
+                    <div class="uploadIcon_title">点击上传图片</div>
+                    <div class="ui_add">
+                        <div class="ui_img" v-for="(item,index) in reimbursements_obj.upload_icon" :title="index" v-show="item != ''" :data-val="index" v-on:mouseover="overIcon($event)" v-on:mouseout="outIcon($event)">
+                            <img class="item_icon" :src="item" alt="">
+                            <img class="close" src="../../images/index/close_icon.png" alt="" width="14" height="14" v-show="hover_icon == index" v-on:click="clickClose(index,$event)">
+                        </div>
+                        <div class="uia_btn">
+                            <div class="uia_btn_icon"></div>
+                            <input type="file" v-on:change="changeIconFile($event)" accept="image/gif, image/jpeg, image/png, image/jpg" multiple>
+                        </div>
+                    </div>
+                    <!--添加说明-->
+                    <div class="uploadinfo_title">添加说明</div>
+                    <div class="ut_area">
+                        <textarea id="editor" placeholder="这里输入内容" autofocus style="width:100px;height:200px;overflow:scroll;resize:none;"></textarea>
+                        <div style="width:100%;height:44px;"></div>
+                    </div>
+                    <div class="upload_btn">
+                        <div class="ub_content">
+                            <div class="ubc_upload" v-on:click="upload_reimburse">提交</div>
+                            <div class="ubc_cancel" v-on:click="cancel_reimburse">取消</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!--锁屏-->
+<div id="lock-enter">
+    <div class="content">
+        <p class="title">提示<i class="fa fa-exclamation-circle"></i></p>
+        <div class="input">
+            <div>
+                <img src="../../images/index/lock-enter.png" alt="">
+            </div>
+            <div>
+                <input type="password" name="lock" class="text-center" placeholder="请输入登录密码">
+            </div>
+            <div style="margin-top: 60px;">
+                <span id="lock-enter-Cancel" class="btn btn-default cancel">重置</span>
+                <span id="lock-enter-Ok" class="btn btn-primary ok">确定</span>
+            </div>
+        </div>
+    </div>
+</div>
+<!--退出系统提示提示-->
+<div id="exit-content" class="clear-worning">
+    <div class="content">
+        <p class="title">
+            提示
+            <i class="fa fa-exclamation-circle"></i>
+        </p>
+        <div class="warning text-center" style="font-weight: 700;">
+            确认退出系统?
+        </div>
+        <div class="clear-btn">
+            <span id="exit-cancel" class="btn btn-default">取消</span>
+            <span id="exit-ok" class="btn btn-primary">确认 </span>
+        </div>
+    </div>
+</div>
+<script src="../../../Tool/js/jquery.min.js"></script>
+<script src="../../lib/bootstrap/bootstrap.min.js"></script>
+<script src="../../lib/slimescroll/jquery.slimscroll.min.js"></script>
+<script src="../../lib/fwb/module.js"></script>
+<script src="../../lib/fwb/hotkeys.js"></script>
+<script src="../../lib/fwb/uploader.js"></script>
+<script src="../../lib/fwb/simditor.js"></script>
+<script src="../../lib/js/Production/depart_reimbursement.js"></script>
+<script src="../../lib/js/toolsFun.js"></script>
+<script>
+    $('.menu-body').slimScroll({
+        width:'100%',
+        height: '400px',
+        wheelStep: 5,
+        alwaysVisible: true,
+    });
+</script>
+</body>
+</html>
